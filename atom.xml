@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="/"/>
-  <updated>2016-09-17T14:46:07.952Z</updated>
+  <updated>2016-09-17T18:56:03.648Z</updated>
   <id>/</id>
   
   <author>
@@ -20,9 +20,15 @@
     <link href="/2016/09/17/Who-is-me/"/>
     <id>/2016/09/17/Who-is-me/</id>
     <published>2016-09-17T14:46:07.000Z</published>
-    <updated>2016-09-17T14:46:07.952Z</updated>
+    <updated>2016-09-17T18:56:03.648Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>Hi, i am Neto Deolino student of the Information Systems in University Federal do Ceará - Brazil and this is my first blog totaly in english.</p>
+<p><img src="/images/neto.jpg" alt="Deolino Neto"></p>
+]]></content>
     
     <summary type="html">
+    
+      &lt;h2 id=&quot;Hi&quot;&gt;&lt;a href=&quot;#Hi&quot; class=&quot;headerlink&quot; title=&quot;Hi&quot;&gt;&lt;/a&gt;Hi&lt;/h2&gt;&lt;p&gt;Hi, i am Neto Deolino student of the Information Systems in University
     
     </summary>
     
