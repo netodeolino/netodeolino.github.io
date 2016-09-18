@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netodeolino.com/"/>
-  <updated>2016-09-18T01:39:44.693Z</updated>
+  <updated>2016-09-18T01:42:15.517Z</updated>
   <id>https://netodeolino.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/"/>
     <id>https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/</id>
     <published>2016-09-18T01:37:29.000Z</published>
-    <updated>2016-09-18T01:39:44.693Z</updated>
+    <updated>2016-09-18T01:42:15.517Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js"><a href="#Creating-a-Desktop-application-with-the-Electron-js" class="headerlink" title="Creating a Desktop application with the Electron.js"></a>Creating a Desktop application with the Electron.js</h1><p>###Pré-requisitos:###</p>
+    <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js"><a href="#Creating-a-Desktop-application-with-the-Electron-js" class="headerlink" title="Creating a Desktop application with the Electron.js"></a>Creating a Desktop application with the Electron.js</h1><p>###Pré-requisitos:</p>
 <ol><br>    <li>Node.js</li><br>    <li>MySQL</li><br></ol>
 
 <p><br></p>
@@ -98,9 +98,8 @@
 <p>Olhando se deu certo no banco de dados.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img19.png?raw=true" alt="Image 19"></p>
 <p><br></p>
-<p>##FIM!##<br>Bom, espero que esse tutorial ajude á você a iniciar com seus primeiros projetos com Electron e respectivamente Node.js. Quaisquer dúvidas pode entrar em contato comigo pelo meu email que está na página inicial do meu GitHub. Obrigado e até mais!</p>
-<p>####Neto Deolino</p>
-<ol><br>    <li> <a href="https://linkedin.com/in/netodeolino" target="_blank" rel="external">https://linkedin.com/in/netodeolino</a> </li><br>    <li> <a href="https://netodeolino.github.io" target="_blank" rel="external">https://netodeolino.github.io</a> </li><br></ol>]]></content>
+<p>##FIM!<br>Bom, espero que esse tutorial ajude á você a iniciar com seus primeiros projetos com Electron e respectivamente Node.js. Quaisquer dúvidas pode entrar em contato comigo pelo meu email que está na página inicial do meu GitHub. Obrigado e até mais!</p>
+]]></content>
     
     <summary type="html">
     
