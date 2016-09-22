@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netodeolino.com/"/>
-  <updated>2016-09-22T02:00:25.996Z</updated>
+  <updated>2016-09-22T02:06:21.296Z</updated>
   <id>https://netodeolino.com/</id>
   
   <author>
@@ -20,14 +20,13 @@
     <link href="https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/"/>
     <id>https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/</id>
     <published>2016-09-18T01:37:29.000Z</published>
-    <updated>2016-09-22T02:00:25.996Z</updated>
+    <updated>2016-09-22T02:06:21.296Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress"><a href="#Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress" class="headerlink" title="Creating a Desktop application with the Electron.js (translation in progress)"></a>Creating a Desktop application with the Electron.js (translation in progress)</h1><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites:"></a>Prerequisites:</h3><pre><code>1. Node.js
 2. MySQL
 </code></pre><p><br></p>
 <h2 id="PART-01-Installation-Configure-and-Project-Understanding"><a href="#PART-01-Installation-Configure-and-Project-Understanding" class="headerlink" title="PART 01 - Installation, Configure and Project Understanding"></a>PART 01 - Installation, Configure and Project Understanding</h2><p>First we go use the <b>Quick Start</b> for create a aplication quick of Electron. This aplication provide an initial struture for the project.</p>
-<p>Clone the repository Quick Start:</p>
-<p><code>$ git clone https://github.com/electron/electron-quick-start</code></p>
+<p>Clone the repository Quick Start:<br><code>$ git clone https://github.com/electron/electron-quick-start</code></p>
 <p>In the repository:<br><code>$ cd electron-quick-start</code></p>
 <p>Install the dependencies and execute for the first time the aplication:<br><code>$ npm install &amp;&amp; npm start</code></p>
 <p>The install dependencies will go be equal or similar to image below:</p>
@@ -99,7 +98,8 @@
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img19.png?raw=true" alt="Image 19"></p>
 <p><br></p>
 <h2 id="FIM"><a href="#FIM" class="headerlink" title="FIM!"></a>FIM!</h2><p>Bom, espero que esse tutorial ajude á você a iniciar com seus primeiros projetos com Electron e respectivamente Node.js. Quaisquer dúvidas pode entrar em contato comigo pelo meu email que está na página inicial do meu GitHub. Obrigado e até mais!</p>
-]]></content>
+<h4 id="Error-in-translation-Let-me-know"><a href="#Error-in-translation-Let-me-know" class="headerlink" title="Error in translation? Let me know!"></a>Error in translation? Let me know!</h4><pre><code>1. netodeolino@gmail.com
+</code></pre>]]></content>
     
     <summary type="html">
     
