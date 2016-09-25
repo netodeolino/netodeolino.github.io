@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netodeolino.com/"/>
-  <updated>2016-09-24T14:39:33.248Z</updated>
+  <updated>2016-09-25T00:13:58.372Z</updated>
   <id>https://netodeolino.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/"/>
     <id>https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/</id>
     <published>2016-09-18T01:37:29.000Z</published>
-    <updated>2016-09-24T14:39:33.248Z</updated>
+    <updated>2016-09-25T00:13:58.372Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress"><a href="#Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress" class="headerlink" title="Creating a Desktop application with the Electron.js (translation in progress)"></a>Creating a Desktop application with the Electron.js (translation in progress)</h1><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites:"></a>Prerequisites:</h3><pre><code>1. Node.js
 2. MySQL
@@ -59,19 +59,19 @@
 <blockquote>
 <p>Attention: Bootstrap is being used in form.</p>
 </blockquote>
-<p>O próximo passo então é criar um arquivo JavaScript onde iremos implementar a função de cadastro.</p>
-<p>Antes de criar o arquivo em si vamos criar as pastas de <code>CSS</code> e <code>JS</code> (JavaScript) assim como a imagem abaixo.</p>
+<p>The next step then is to create a JavaScript file where we will implement the registration function.</p>
+<p>Before creating the file, we will create the folder <code>CSS</code> and <code>JS</code> (JavaScript) as well as the image below.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img09.png?raw=true" alt="Image 09"></p>
 <p><br></p>
-<p>Dentro da pasta <code>js</code> vamos criar mais duas pastas, são elas <code>bd</code>, onde vão ficar os futuros arquivos de configuração do banco, e  <code>controllers</code>, onde ficará os arquivos de controle da aplicação.</p>
+<p>Inside the folder <code>js</code> we will create two more folders, they are <code>bd</code>, which will be the future configuration files of the bank, and <code>controllers</code> where will the application of the control files.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img10.png?raw=true" alt="Image 10"></p>
 <p><br></p>
-<p>Finalmente, dentro de <code>controllers</code> vamos criar o arquivo <code>controller.js</code> onde irá ser implementado a função de cadastro.</p>
-<p>Na imagem abaixo mostro como a função vai ficar.</p>
+<p>Finally, within <code>controllers</code> we will create the <code>controller.js</code> file where will be implemented the registration function.</p>
+<p>In the image below show the function.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img11.png?raw=true" alt="Image 11"></p>
 <p><br></p>
-<p>Agora vou mostrar o passo-a-passo necessário para que seja possível o cadastro de um usuário.</p>
-<p>Primeiro criamos o arquivo de conexão com o banco dentro da pasta <code>bd</code> chamado <code>ConexaoBanco.js</code>.</p>
+<p>Now I will show the necessary step-by-step so that the registration of a user.</p>
+<p>First we create the connection file with the bank within the folder <code>bd</code> called <code>ConexaoBanco.js</code>.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img12.png?raw=true" alt="Image 12"></p>
 <p><br></p>
 <p>O próximo arquivo irá se chamar <code>UsuarioDAO.js</code>. É nele que irá ser implementado todas as funções que irão se comunicar com o banco. Exemplos: Salvar, Deletar, Atualizar, Dentre outros. No nosso exemplo vamos fazer somente o Salvar.</p>
