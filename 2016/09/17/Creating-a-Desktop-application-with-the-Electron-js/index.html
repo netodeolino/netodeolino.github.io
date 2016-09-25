@@ -213,27 +213,27 @@
 <p>First we create the connection file with the bank within the folder <code>bd</code> called <code>ConexaoBanco.js</code>.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img12.png?raw=true" alt="Image 12"></p>
 <p><br></p>
-<p>O próximo arquivo irá se chamar <code>UsuarioDAO.js</code>. É nele que irá ser implementado todas as funções que irão se comunicar com o banco. Exemplos: Salvar, Deletar, Atualizar, Dentre outros. No nosso exemplo vamos fazer somente o Salvar.</p>
+<p>The next file will be called <code>UsuarioDAO.js</code>. On it will be implemented all the functions that will communicate with the bank. Examples: Save, Delete, Refresh, Among others. In our example we will do only the Save.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img13.png?raw=true" alt="Image 13"></p>
 <p><br></p>
-<p>Para complementar o passo anterior vamos criar o arquivo <code>Usuario.js</code> que irá ser o objeto usuário do projeto (Similar ao model do MVC).</p>
+<p>In complement to the previous step, we will create the <code>Usuario.js</code> file that will be the design of the object user (similar to the model of MVC).</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img14.png?raw=true" alt="Image 14"></p>
 <p><br></p>
-<p>Por último vamos fazer o arquivo e a respectiva função que é chamada na tela inicial (index.html).</p>
+<p>Finally, we will make the file and its function that is called on the home screen (index.html).</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img15.png?raw=true" alt="Image 15"></p>
 <p><br></p>
-<p>Vamos agora criar a base e uma tabela no banco MySQL.</p>
+<p>Let’s now create the base and a table in MySQL database.</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> tutorialelectron;</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> usuario (</div><div class="line">    nome <span class="built_in">varchar</span>(<span class="number">60</span>),</div><div class="line">    email <span class="built_in">varchar</span>(<span class="number">60</span>),</div><div class="line">    login <span class="built_in">varchar</span>(<span class="number">30</span>),</div><div class="line">    senha <span class="built_in">varchar</span>(<span class="number">30</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>No arquivo <code>index.html</code> é necessário importar os scripts criados por nós para que todas as funções necessárias funcionem corretamente.</p>
+<p>In <code>index.html</code> file, you must import scripts created by us so that all the necessary functions work properly.</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"./public/js/bd/ConexaoBanco.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/UsuarioDAO.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/cadastroController.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/Usuario.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"./public/js/controllers/controller.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>Vamos agora executar nossa aplicação. Para isso execute o comando <code>npm start</code>.</p>
+<p>We now run our application. To do this run the command <code>npm start</code>.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img16.png?raw=true" alt="Image 16"></p>
 <p><br></p>
-<p>Fazendo um cadastro.</p>
+<p>Making a record.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img17.png?raw=true" alt="Image 17"></p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img18.png?raw=true" alt="Image 18"></p>
 <p><br></p>
-<p>Olhando se deu certo no banco de dados.</p>
+<p>Checking the result.</p>
 <p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img19.png?raw=true" alt="Image 19"></p>
 <p><br></p>
 <h2 id="FIM"><a href="#FIM" class="headerlink" title="FIM!"></a>FIM!</h2><p>Bom, espero que esse tutorial ajude á você a iniciar com seus primeiros projetos com Electron e respectivamente Node.js. Quaisquer dúvidas pode entrar em contato comigo pelo meu email que está na página inicial do meu GitHub. Obrigado e até mais!</p>
