@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netodeolino.com/"/>
-  <updated>2016-09-25T00:31:11.876Z</updated>
+  <updated>2016-09-27T19:34:32.096Z</updated>
   <id>https://netodeolino.com/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/"/>
     <id>https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/</id>
     <published>2016-09-18T01:37:29.000Z</published>
-    <updated>2016-09-25T00:31:11.876Z</updated>
+    <updated>2016-09-27T19:34:32.096Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress"><a href="#Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress" class="headerlink" title="Creating a Desktop application with the Electron.js (translation in progress)"></a>Creating a Desktop application with the Electron.js (translation in progress)</h1><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites:"></a>Prerequisites:</h3><pre><code>1. Node.js
+    <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js"><a href="#Creating-a-Desktop-application-with-the-Electron-js" class="headerlink" title="Creating a Desktop application with the Electron.js"></a>Creating a Desktop application with the Electron.js</h1><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites:"></a>Prerequisites:</h3><pre><code>1. Node.js
 2. MySQL
 </code></pre><p><br></p>
 <h2 id="PART-01-Installation-Configure-and-Project-Understanding"><a href="#PART-01-Installation-Configure-and-Project-Understanding" class="headerlink" title="PART 01 - Installation, Configure and Project Understanding"></a>PART 01 - Installation, Configure and Project Understanding</h2><p>First we go use the <b>Quick Start</b> for create a aplication quick of Electron. This aplication provide an initial struture for the project.</p>
@@ -103,7 +103,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Creating-a-Desktop-application-with-the-Electron-js-translation-in-progress&quot;&gt;&lt;a href=&quot;#Creating-a-Desktop-application-with-the-Elect
+      &lt;h1 id=&quot;Creating-a-Desktop-application-with-the-Electron-js&quot;&gt;&lt;a href=&quot;#Creating-a-Desktop-application-with-the-Electron-js&quot; class=&quot;headerlin
     
     </summary>
     
