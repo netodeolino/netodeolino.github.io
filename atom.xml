@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netodeolino.com/"/>
-  <updated>2016-09-27T19:34:32.096Z</updated>
+  <updated>2016-12-22T10:33:21.676Z</updated>
   <id>https://netodeolino.com/</id>
   
   <author>
@@ -16,114 +16,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Creating a Desktop application with the Electron.js</title>
-    <link href="https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/"/>
-    <id>https://netodeolino.com/2016/09/17/Creating-a-Desktop-application-with-the-Electron-js/</id>
-    <published>2016-09-18T01:37:29.000Z</published>
-    <updated>2016-09-27T19:34:32.096Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Creating-a-Desktop-application-with-the-Electron-js"><a href="#Creating-a-Desktop-application-with-the-Electron-js" class="headerlink" title="Creating a Desktop application with the Electron.js"></a>Creating a Desktop application with the Electron.js</h1><h3 id="Prerequisites"><a href="#Prerequisites" class="headerlink" title="Prerequisites:"></a>Prerequisites:</h3><pre><code>1. Node.js
-2. MySQL
-</code></pre><p><br></p>
-<h2 id="PART-01-Installation-Configure-and-Project-Understanding"><a href="#PART-01-Installation-Configure-and-Project-Understanding" class="headerlink" title="PART 01 - Installation, Configure and Project Understanding"></a>PART 01 - Installation, Configure and Project Understanding</h2><p>First we go use the <b>Quick Start</b> for create a aplication quick of Electron. This aplication provide an initial struture for the project.</p>
-<p>Clone the repository Quick Start:<br><code>$ git clone https://github.com/electron/electron-quick-start</code></p>
-<p>In the repository:<br><code>$ cd electron-quick-start</code></p>
-<p>Install the dependencies and execute for the first time the aplication:<br><code>$ npm install &amp;&amp; npm start</code></p>
-<p>The install dependencies will go be equal or similar to image below:</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img01.png?raw=true" alt="Image 01"></p>
-<p><br></p>
-<p>The execution of the aplication will be similar to the image below:</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img02.png?raw=true" alt="Image 02"></p>
-<p><br></p>
-<p>If you look, some files were downloaded in the project, among them are <code>main.js</code>, <code>index.html</code>, <code>package.json</code> and the folder <code>node_modules</code>. We’ll to talk a little about each of them now.</p>
-<h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img03.png?raw=true" alt="Image 03"></p>
-<p>This file is set up for us with most of the resources needed for the start of a project. Some of these settings are the size of the application window, the path to the first screen, among other things.</p>
-<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img04.png?raw=true" alt="Image 04"></p>
-<p>This file is the page or the screen application early (since we are talking about a desktop application). Here you can create a design and some initial interaction to other screens using features such as CSS, Bootstrap, among others, as creating a Web application.</p>
-<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img05.png?raw=true" alt="Image 05"></p>
-<p>All necessary dependencies that arise during the development of your project you can install by running <code>npm install</code>. For example, suppose you go to work with MySQL, then you come to this file and in “devDependencies” adds <code>&quot;mysql&quot;: &quot;*&quot;</code>, with this the latest version of MySQL is added in your folder <code>node_modules</code> and is  available to be used by you in the project using the command <code>require(“mysql”);</code>.</p>
-<h4 id="node-modules"><a href="#node-modules" class="headerlink" title="node_modules"></a>node_modules</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img06.png?raw=true" alt="Image 06"></p>
-<p>In this folder are installed all the dependencies of the project, such as MySQL how was spoken in the previous topic.</p>
-<p><br></p>
-<h2 id="PART-02-Creating-a-simple-application"><a href="#PART-02-Creating-a-simple-application" class="headerlink" title="PART 02 - Creating a simple application"></a>PART 02 - Creating a simple application</h2><p>Now it’s time to play around with Electron. Let’s create a more beautiful look to the home screen of the application and create a simple registration using the MySQL database. In my example I will make the use of Bootstrap and JQuery but they are not mandatory.</p>
-<p><br></p>
-<p>First we create two folders for the project be more organized and modularized. Folders are <code>public</code> where will stay CSS and JavaScript files, and <code>views</code> where will the other application screens.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img07.png?raw=true" alt="Image 07"></p>
-<p><br></p>
-<p>You must also install MySQL for the connection to the database be possible.<br>To install the MySQL add in the file <code>package.json</code> the dependency <code>&quot;mysql&quot;, &quot;*&quot;</code>. The same will look like the image below. Afterwards execute the command <code>npm install</code> for that addiction is finally installed.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img08.png?raw=true" alt="Image 08"></p>
-<p><br></p>
-<p>In the file <code>index.html</code> we will create a form of registration.</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputName"</span>&gt;</span>Nome Completo<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"InputName"</span> <span class="attr">id</span>=<span class="string">"InputName"</span> <span class="attr">placeholder</span>=<span class="string">"Nome Completo"</span> <span class="attr">required</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputEmail"</span>&gt;</span>Seu Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"InputEmail"</span> <span class="attr">name</span>=<span class="string">"InputEmail"</span> <span class="attr">placeholder</span>=<span class="string">"Email"</span> <span class="attr">required</span>  &gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputLogin"</span>&gt;</span>Seu Login<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"InputLogin"</span> <span class="attr">name</span>=<span class="string">"InputLogin"</span> <span class="attr">placeholder</span>=<span class="string">"Login"</span> <span class="attr">required</span>  &gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputSenha"</span>&gt;</span>Sua Senha<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"InputSenha"</span> <span class="attr">name</span>=<span class="string">"InputSenha"</span> <span class="attr">placeholder</span>=<span class="string">"Senha"</span> <span class="attr">required</span>  &gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-primary btn-block"</span> <span class="attr">onclick</span>=<span class="string">"realizarCadastro()"</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Cadastrar<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>Note that at the end of the form, more precisely in the <code>button</code> has a call to the <code>realizarCadastro()</code> when the button is clicked. It will be the function that will perform some procedures necessary for that data entered on the screen to will be saved in the database.</p>
-<blockquote>
-<p>Attention: Bootstrap is being used in form.</p>
-</blockquote>
-<p>The next step then is to create a JavaScript file where we will implement the registration function.</p>
-<p>Before creating the file, we will create the folder <code>CSS</code> and <code>JS</code> (JavaScript) as well as the image below.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img09.png?raw=true" alt="Image 09"></p>
-<p><br></p>
-<p>Inside the folder <code>js</code> we will create two more folders, they are <code>bd</code>, which will be the future configuration files of the bank, and <code>controllers</code> where will the application of the control files.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img10.png?raw=true" alt="Image 10"></p>
-<p><br></p>
-<p>Finally, within <code>controllers</code> we will create the <code>controller.js</code> file where will be implemented the registration function.</p>
-<p>In the image below show the function.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img11.png?raw=true" alt="Image 11"></p>
-<p><br></p>
-<p>Now I will show the necessary step-by-step so that the registration of a user.</p>
-<p>First we create the connection file with the bank within the folder <code>bd</code> called <code>ConexaoBanco.js</code>.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img12.png?raw=true" alt="Image 12"></p>
-<p><br></p>
-<p>The next file will be called <code>UsuarioDAO.js</code>. On it will be implemented all the functions that will communicate with the bank. Examples: Save, Delete, Refresh, Among others. In our example we will do only the Save.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img13.png?raw=true" alt="Image 13"></p>
-<p><br></p>
-<p>In complement to the previous step, we will create the <code>Usuario.js</code> file that will be the design of the object user (similar to the model of MVC).</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img14.png?raw=true" alt="Image 14"></p>
-<p><br></p>
-<p>Finally, we will make the file and its function that is called on the home screen (index.html).</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img15.png?raw=true" alt="Image 15"></p>
-<p><br></p>
-<p>Let’s now create the base and a table in MySQL database.</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> tutorialelectron;</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> usuario (</div><div class="line">    nome <span class="built_in">varchar</span>(<span class="number">60</span>),</div><div class="line">    email <span class="built_in">varchar</span>(<span class="number">60</span>),</div><div class="line">    login <span class="built_in">varchar</span>(<span class="number">30</span>),</div><div class="line">    senha <span class="built_in">varchar</span>(<span class="number">30</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
-<p>In <code>index.html</code> file, you must import scripts created by us so that all the necessary functions work properly.</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"./public/js/bd/ConexaoBanco.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/UsuarioDAO.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/cadastroController.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/Usuario.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"./public/js/controllers/controller.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
-<p>We now run our application. To do this run the command <code>npm start</code>.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img16.png?raw=true" alt="Image 16"></p>
-<p><br></p>
-<p>Making a record.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img17.png?raw=true" alt="Image 17"></p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img18.png?raw=true" alt="Image 18"></p>
-<p><br></p>
-<p>Checking the result.</p>
-<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img19.png?raw=true" alt="Image 19"></p>
-<p><br></p>
-<h2 id="The-End"><a href="#The-End" class="headerlink" title="The End!"></a>The End!</h2><p>Well, I hope this tutorial help you get started with your first projects with Electron and respectively Node.js. Any questions can contact me at my email is on the homepage of my GitHub. Thank you and even more!</p>
-<h4 id="Error-in-translation-Let-me-know"><a href="#Error-in-translation-Let-me-know" class="headerlink" title="Error in translation? Let me know!"></a>Error in translation? Let me know!</h4><pre><code>1. netodeolino@gmail.com
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Creating-a-Desktop-application-with-the-Electron-js&quot;&gt;&lt;a href=&quot;#Creating-a-Desktop-application-with-the-Electron-js&quot; class=&quot;headerlin
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Who is me</title>
+    <title>Quem sou eu</title>
     <link href="https://netodeolino.com/2016/09/17/Who-is-me/"/>
     <id>https://netodeolino.com/2016/09/17/Who-is-me/</id>
     <published>2016-09-17T14:46:07.000Z</published>
-    <updated>2016-09-18T01:34:10.321Z</updated>
+    <updated>2016-12-22T10:33:21.676Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Hi"><a href="#Hi" class="headerlink" title="Hi"></a>Hi</h2><p>Hi, i am Neto Deolino student of the Information Systems in University Federal of Ceará and this is my first blog totaly in english. I hope I can help you with my posts and tutorials.</p>
+    <content type="html"><![CDATA[<h2 id="Ola"><a href="#Ola" class="headerlink" title="Olá"></a>Olá</h2><p>Oi, eu sou Neto Deolino, estudante de Sistemas de Informação na Universidade Federal do Ceará. Desejo poder ajudar vocês com meus posts e tutoriais :D</p>
 <p><img src="/images/neto.jpg" alt="Deolino Neto"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Hi&quot;&gt;&lt;a href=&quot;#Hi&quot; class=&quot;headerlink&quot; title=&quot;Hi&quot;&gt;&lt;/a&gt;Hi&lt;/h2&gt;&lt;p&gt;Hi, i am Neto Deolino student of the Information Systems in University
+      &lt;h2 id=&quot;Ola&quot;&gt;&lt;a href=&quot;#Ola&quot; class=&quot;headerlink&quot; title=&quot;Olá&quot;&gt;&lt;/a&gt;Olá&lt;/h2&gt;&lt;p&gt;Oi, eu sou Neto Deolino, estudante de Sistemas de Informação na Un
     
     </summary>
     
