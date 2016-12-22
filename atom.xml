@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://netodeolino.com/"/>
-  <updated>2016-12-22T10:33:21.676Z</updated>
+  <updated>2016-12-22T11:10:12.403Z</updated>
   <id>https://netodeolino.com/</id>
   
   <author>
@@ -16,11 +16,292 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Extraindo dados com o Pentaho</title>
+    <link href="https://netodeolino.com/2016/12/22/Extraindo-dados-com-o-Pentaho/"/>
+    <id>https://netodeolino.com/2016/12/22/Extraindo-dados-com-o-Pentaho/</id>
+    <published>2016-12-22T10:42:16.000Z</published>
+    <updated>2016-12-22T11:10:12.403Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Um-Simples-Guia-Passo-a-Passo-Para-Voce-Que-Precisa-Extrair-Dados-De-Arquivos-Para-Seu-Banco-De-Dados"><a href="#Um-Simples-Guia-Passo-a-Passo-Para-Voce-Que-Precisa-Extrair-Dados-De-Arquivos-Para-Seu-Banco-De-Dados" class="headerlink" title="Um Simples Guia Passo-a-Passo Para Você Que Precisa Extrair Dados De Arquivos Para Seu Banco De Dados"></a>Um Simples Guia Passo-a-Passo Para Você Que Precisa Extrair Dados De Arquivos Para Seu Banco De Dados</h1><p>A primeira coisa que fazemos é criar um Banco no Postgres, no meu caso foi <code>aulapentaho</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_01.png?raw=true" alt="Image 01"></p>
+<p><br></p>
+<p>A segunda coisa a ser feita é criar a tabela que vai receber os dados da base que você escolheu. Para isso abra com o Office Writer o arquivo <code>.csv</code> da sua base de dados, pois com ela você ver os campos (atributos/coluna) e os possíveis tipos (int, varchar, …) necessários para criar sua tabela.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_02.png?raw=true" alt="Image 02"></p>
+<p><br></p>
+<p>Minha tabela, referente ao meu arquivo <code>.csv</code>, ficou como segue a imagem. Dei ao nome da tabela o mesmo nome de meu arquivo .csv neste caso, pois pode facilitar o entendimento do mesmo. Repare também que meus atributos DISCIPLINA e GABARITO eu coloquei com um varchar maior do que aparentemente eu precisava conforme a imagem anterior. Eu fiz isto para garantir que a extração não desse erro caso no meio da minha base .csv tenha tuplas com varchar maior que os primeiros valores que vi nos campos conforme imagem anterior. Só precisa fazer isto para campos do tipo string/varchar.<br><strong>NOTA:</strong> É mostrado os primeiros campos do arquivo!</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_03.png?raw=true" alt="Image 03"></p>
+<p><br></p>
+<p>Nesta imagem abro o Pentaho no diretório onde o armazenei. Ele executa com o arquivo <code>spoon.sh</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_04.png?raw=true" alt="Image 04"></p>
+<p><br></p>
+<p>Com o Pentaho aberto der dois cliques em Transformações.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_05.png?raw=true" alt="Image 05"></p>
+<p><br></p>
+<p>Em Input clique em <code>CSV File Input</code> arraste e solte no quadro branco.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_06.png?raw=true" alt="Image 06"></p>
+<p><br></p>
+<p>Vai ficar como na imagem. Faça o mesmo em Output com <code>Table Output</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_07.png?raw=true" alt="Image 07"></p>
+<p><br></p>
+<p>Dê um clique em Table output. Clique agora na seta dentro da caixa que fica a esquerda, arraste e solte em <code>CSV File Input</code> e clique em <code>Main Input...</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_08.png?raw=true" alt="Image 08"></p>
+<p><br></p>
+<p>Deve ficar como a imagem.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_09.png?raw=true" alt="Image 09"></p>
+<p><br></p>
+<p>Der dois cliques sobre <code>CSV input file</code>. Vai abrir a seguinte tela.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_10.png?raw=true" alt="Image 10"></p>
+<p><br></p>
+<p>Em <code>Filename</code> clique em <code>Navega...</code> e selecione o teu arquivo <code>.csv</code> que quer extrair (o mesmo que usou para criar a tabela no banco). Em <code>Delimiter</code> ponha o delimitador do arquivo que é geralmente “;” ou “ “ (ponto-e-vírgula ou espaço). Abra tua base com o Gedit para saber o delimitador correto. Depois clique em <code>Obtem Campos</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_11.png?raw=true" alt="Image 11"></p>
+<p><br></p>
+<p>Vai abrir a seguinte tela, clique em <code>OK</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_12.png?raw=true" alt="Image 12"></p>
+<p><br></p>
+<p>Nos tipos que forem do tipo String ponha o tamanho que colocou no teu varchar na hora de criar a tabela. Exemplo: O meu GABARITO eu coloquei varchar(2), aqui nesta tela o GABARITO aparece com tamanho 1, então eu editei para 2 na quarta coluna, conforme imagem abaixo. Depois clique em <code>Preview</code>, digite 100 e clique <code>OK</code>. Os valores da base devem ser mostrados em uma tela, depois é só fechar a tela de preview e clicar em <code>OK</code> na tela de CSV Input. Esta tela de preview somente serve para ver se tudo está indo como desejado.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_13.png?raw=true" alt="Image 13"></p>
+<p><br></p>
+<p>Agora em <code>Table Output</code> der dois cliques para abrir e vá em <code>New...</code> para criar uma nova conexão.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_14.png?raw=true" alt="Image 14"></p>
+<p><br></p>
+<p>Configure a conexão conforme teu banco, tabela e senha de acesso ao banco. Der um nome a conexão e clique em <code>Test</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_15.png?raw=true" alt="Image 15"></p>
+<p><br></p>
+<p>Se tudo ocorrer bem a mensagem a baixo irá aparecer. Agora clique em <code>OK</code> da mensagem e no <code>OK</code> de <code>Database Connection</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_16.png?raw=true" alt="Image 16"></p>
+<p><br></p>
+<p>Em <code>Target Schema</code> navegue e selecione public. Em <code>Target Table</code> selecione a tabela que você criou para armazenar os dados de extração. Depois selecione <code>Specify Database Fields</code> e abra a aba <code>Database fields</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_17.png?raw=true" alt="Image 17"></p>
+<p><br></p>
+<p>Clique em <code>Get Fields</code> e depois em <code>Enter Field Mapping</code> e clique em <code>OK</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_18.png?raw=true" alt="Image 18"></p>
+<p><br></p>
+<p>Clique em <code>SQL</code> e a tela abaixo irá aparecer. Depois clique em <code>Execute</code>. Feche as telas que abrirem posteriormente.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_19.png?raw=true" alt="Image 19"></p>
+<p><br></p>
+<p>Agora clica em <code>OK</code> na tela de Table output.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_20.png?raw=true" alt="Image 20"></p>
+<p><br></p>
+<p>Nesta tela clique na opção de <code>Play</code> para executar a transformação.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_21.png?raw=true" alt="Image 21"></p>
+<p><br></p>
+<p>Nesta tela clica em <code>Run</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_22.png?raw=true" alt="Image 22"></p>
+<p><br></p>
+<p>Nesta em <code>Sim</code> para salvar sua transformação.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_23.png?raw=true" alt="Image 23"></p>
+<p><br></p>
+<p>Salve a transformação no local que desejar.</p>
+<blockquote>
+<p>Nota do tutor: Meio que obrigatório!</p>
+</blockquote>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_24.png?raw=true" alt="Image 24"></p>
+<p><br></p>
+<p>Imagem da transformação finalizada. Sorria :) Este passo pode demorar muito tempo dependendo do tamanho da base!</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_25.png?raw=true" alt="Image 25"></p>
+<p><br></p>
+<p>De volta ao Postgres, crie novamente a chave primária da tabela, pois o Pentaho a exclui. Clique sobre a tabela com o botão direito do mouse e vá em <code>New Object</code> e <code>New Primary Key</code>. Vá até a aba <code>Columns</code> e em <code>Column</code> selecione a coluna que deve ser chave primária, clique em <code>Add</code> e depois em <code>OK</code>. Este passo pode demorar um pouco, depende do tamanho de tua base, porque o Postgres procura nesta coluna valores duplicados, pois caso haja não pode ser chave primária.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_26.png?raw=true" alt="Image 26"></p>
+<p><br></p>
+<p>Por fim faça uma consulta (select) em teu banco para ver se está tudo OK com a extração. Não se esqueça de limitar a consulta, pois iria demorar bastante para o Postgres ler toda a base e imprimir na tela.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_27.png?raw=true" alt="Image 27"></p>
+<p><br></p>
+<h2 id="FIM"><a href="#FIM" class="headerlink" title="FIM!"></a>FIM!</h2><p>Eu espero que este tutorial tenha sido útil! O mesmo foi criado por mim com a intenção de ajudar qualquer pessoa que precise extrair dados de algum local para um Banco de Dados específico. Apesar do tutorial ter sido feito usando como exemplo o Postgres e um arquivo <code>.CSV</code>, acredito eu que fique muito mais fácil para alguns realizar o procedimento com outros SGBD’s e outros arquivos como um <code>.TXT</code>, pois vai mudar somente algumas configurações simples de serem feitas.</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Um-Simples-Guia-Passo-a-Passo-Para-Voce-Que-Precisa-Extrair-Dados-De-Arquivos-Para-Seu-Banco-De-Dados&quot;&gt;&lt;a href=&quot;#Um-Simples-Guia-Pas
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Criando uma aplicação Desktop com Electron.js</title>
+    <link href="https://netodeolino.com/2016/12/22/Criando-uma-aplicacao-Desktop-com-Electron-js/"/>
+    <id>https://netodeolino.com/2016/12/22/Criando-uma-aplicacao-Desktop-com-Electron-js/</id>
+    <published>2016-12-22T10:41:57.000Z</published>
+    <updated>2016-12-22T11:08:22.139Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Um-tutorial-de-uma-simples-aplicacao-usando-Electron"><a href="#Um-tutorial-de-uma-simples-aplicacao-usando-Electron" class="headerlink" title="Um tutorial de uma simples aplicação usando Electron"></a>Um tutorial de uma simples aplicação usando Electron</h1><h3 id="Pre-requisitos"><a href="#Pre-requisitos" class="headerlink" title="Pré-requisitos:"></a>Pré-requisitos:</h3><pre><code>1. Node.js
+2. MySQL
+</code></pre><p><br></p>
+<h2 id="PARTE-01-Instalacao-Configuracao-e-Entendimento-do-Projeto"><a href="#PARTE-01-Instalacao-Configuracao-e-Entendimento-do-Projeto" class="headerlink" title="PARTE 01 - Instalação, Configuração e Entendimento do Projeto"></a>PARTE 01 - Instalação, Configuração e Entendimento do Projeto</h2><p>Primeiro vamos usar o <b>Quick Start</b> para criar uma aplicação rápida do Electron. Essa aplicação nos fornecerá uma estrutura inicial para o projeto.</p>
+<p>Clone o repositório Quick Start:<br><code>$ git clone https://github.com/electron/electron-quick-start</code></p>
+<p>Entre no repositório:<br><code>$ cd electron-quick-start</code></p>
+<p>Instale as dependências e Execute pela primeira vez a aplicação:<br><code>$ npm install &amp;&amp; npm start</code></p>
+<p>A instalação das dependências vai ser igual ou similar a imagem abaixo:</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img01.png?raw=true" alt="Image 01"></p>
+<p><br></p>
+<p>A execução da aplicação vai ser similar a imagem abaixo:</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img02.png?raw=true" alt="Image 02"></p>
+<p><br></p>
+<p>Se analisarmos, alguns arquivos foram baixados no projeto, dentre eles estão <code>main.js</code>, <code>index.html</code>, <code>package.json</code> e a pasta <code>node_modules</code>. Vamos falar um pouco sobre cada um deles agora.</p>
+<h4 id="main-js"><a href="#main-js" class="headerlink" title="main.js"></a>main.js</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img03.png?raw=true" alt="Image 03"></p>
+<p>Neste arquivo é configurado para nós a maioria dos recursos necessários para o início de um projeto, sendo este simples ou não. Algumas destas configurações são o tamanho da janela da aplicação, o caminho para a primeira tela, dentre outras coisas.</p>
+<h4 id="index-html"><a href="#index-html" class="headerlink" title="index.html"></a>index.html</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img04.png?raw=true" alt="Image 04"></p>
+<p>Este arquivo é a página, ou a tela (uma vez que estamos falando de uma aplicação desktop), inicial da aplicação. Nela você pode criar um design e alguma interação inicial para outras telas usando de recursos como CSS, Bootstrap, dentre outros, como se estivesse criando uma aplicação Web.</p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img05.png?raw=true" alt="Image 05"></p>
+<p>Todas as dependências necessárias que surgirem durante o desenvolvimento do seu projeto você pode instalar por este arquivo executando o comando <code>npm install</code>. Por exemplo, suponha que você vá trabalhar com MySQL, então você vem até este arquivo e em “devDependencies” adiciona <code>&quot;mysql&quot;: &quot;*&quot;</code>, com isto a última versão do MySQL é adicionado na sua pasta <code>node_modules</code> e fica disponível para ser usado por você no projeto usando o comando <code>require(“mysql”);</code>.</p>
+<h4 id="node-modules"><a href="#node-modules" class="headerlink" title="node_modules"></a>node_modules</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img06.png?raw=true" alt="Image 06"></p>
+<p>Nesta pasta ficam instalados todas as dependências do projeto, como por exemplo o MySQL que foi falado no tópico anterior.</p>
+<p><br></p>
+<h2 id="PARTE-02-Criando-uma-aplicacao-simples"><a href="#PARTE-02-Criando-uma-aplicacao-simples" class="headerlink" title="PARTE 02 - Criando uma aplicação simples"></a>PARTE 02 - Criando uma aplicação simples</h2><p>Agora chegou o momento de brincar um pouco com Electron. Vamos criar um visual mais bonito para a tela inicial da aplicação e criar um cadastro simples usando o banco MySQL. No meu exemplo vou fazer o uso de Bootstrap e JQuery mas os mesmos não são obrigatórios.</p>
+<p><br></p>
+<p>Primeiro vamos criar duas pastas para que o projeto fique mais organizado e modularizado. As pastas são <code>public</code>, onde ficarão os arquivos de CSS e JavaScript, e <code>views</code>, onde ficarão as demais telas da aplicação.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img07.png?raw=true" alt="Image 07"></p>
+<p><br></p>
+<p>Também é necessário instalar o MySQL para que a conexão com o banco de dados seja possível.<br>Para instalar o MySQL adicione no arquivo <code>package.json</code> a dependência <code>&quot;mysql&quot;: &quot;*&quot;</code>. O mesmo irá ficar como a imagem abaixo. Posteriormente execute o comando <code>npm install</code> para que a dependência enfim seja instalada.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img08.png?raw=true" alt="Image 08"></p>
+<p><br></p>
+<p>No arquivo <code>index.html</code> vamos criar um formulario de cadastro.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">role</span>=<span class="string">"form"</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span> &gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputName"</span>&gt;</span>Nome Completo<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">name</span>=<span class="string">"InputName"</span> <span class="attr">id</span>=<span class="string">"InputName"</span> <span class="attr">placeholder</span>=<span class="string">"Nome Completo"</span> <span class="attr">required</span>&gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputEmail"</span>&gt;</span>Seu Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"email"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"InputEmail"</span> <span class="attr">name</span>=<span class="string">"InputEmail"</span> <span class="attr">placeholder</span>=<span class="string">"Email"</span> <span class="attr">required</span>  &gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputLogin"</span>&gt;</span>Seu Login<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"InputLogin"</span> <span class="attr">name</span>=<span class="string">"InputLogin"</span> <span class="attr">placeholder</span>=<span class="string">"Login"</span> <span class="attr">required</span>  &gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"form-group"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"InputSenha"</span>&gt;</span>Sua Senha<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"input-group"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"form-control"</span> <span class="attr">id</span>=<span class="string">"InputSenha"</span> <span class="attr">name</span>=<span class="string">"InputSenha"</span> <span class="attr">placeholder</span>=<span class="string">"Senha"</span> <span class="attr">required</span>  &gt;</span></div><div class="line">                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"input-group-addon"</span>&gt;</span><span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-ok form-control-feedback"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-lg btn-primary btn-block"</span> <span class="attr">onclick</span>=<span class="string">"realizarCadastro()"</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span>Cadastrar<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Repare que no fim do formulário, mais precisamente no <code>button</code> tem uma chamada à função <code>realizarCadastro()</code> quando o botão é clicado. Vai ser essa função que vai realizar alguns procedimentos necessários para que aqueles dados digitados na tela sejam salvos no banco de dados.</p>
+<blockquote>
+<p>OBSERVAÇÃO: O Bootstrap está sendo utilizado neste formulário.</p>
+</blockquote>
+<p>O próximo passo então é criar um arquivo JavaScript onde iremos implementar a função de cadastro.</p>
+<p>Antes de criar o arquivo em si vamos criar as pastas de <code>CSS</code> e <code>JS</code> (JavaScript) assim como a imagem abaixo.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img09.png?raw=true" alt="Image 09"></p>
+<p><br></p>
+<p>Dentro da pasta <code>js</code> vamos criar mais duas pastas, são elas <code>bd</code>, onde vão ficar os futuros arquivos de configuração do banco, e  <code>controllers</code>, onde ficará os arquivos de controle da aplicação.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img10.png?raw=true" alt="Image 10"></p>
+<p><br></p>
+<p>Finalmente, dentro de <code>controllers</code> vamos criar o arquivo <code>controller.js</code> onde irá ser implementado a função de cadastro.</p>
+<p>Na imagem abaixo mostro como a função vai ficar.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img11.png?raw=true" alt="Image 11"></p>
+<p><br></p>
+<p>Agora vou mostrar o passo-a-passo necessário para que seja possível o cadastro de um usuário.</p>
+<p>Primeiro criamos o arquivo de conexão com o banco dentro da pasta <code>bd</code> chamado <code>ConexaoBanco.js</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img12.png?raw=true" alt="Image 12"></p>
+<p><br></p>
+<p>O próximo arquivo irá se chamar <code>UsuarioDAO.js</code>. É nele que irá ser implementado todas as funções que irão se comunicar com o banco. Exemplos: Salvar, Deletar, Atualizar, Dentre outros. No nosso exemplo vamos fazer somente o Salvar.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img13.png?raw=true" alt="Image 13"></p>
+<p><br></p>
+<p>Para complementar o passo anterior vamos criar o arquivo <code>Usuario.js</code> que irá ser o objeto usuário do projeto (Similar ao model do MVC).</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img14.png?raw=true" alt="Image 14"></p>
+<p><br></p>
+<p>Por último vamos fazer o arquivo e a respectiva função que é chamada na tela inicial (index.html).</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img15.png?raw=true" alt="Image 15"></p>
+<p><br></p>
+<p>Vamos agora criar a base e uma tabela no banco MySQL.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">create</span> <span class="keyword">database</span> tutorialelectron;</div><div class="line"></div><div class="line"><span class="keyword">create</span> <span class="keyword">table</span> usuario (</div><div class="line">    nome <span class="built_in">varchar</span>(<span class="number">60</span>),</div><div class="line">    email <span class="built_in">varchar</span>(<span class="number">60</span>),</div><div class="line">    login <span class="built_in">varchar</span>(<span class="number">30</span>),</div><div class="line">    senha <span class="built_in">varchar</span>(<span class="number">30</span>)</div><div class="line">);</div></pre></td></tr></table></figure>
+<p>No arquivo <code>index.html</code> é necessário importar os scripts criados por nós para que todas as funções necessárias funcionem corretamente.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"./public/js/bd/ConexaoBanco.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/UsuarioDAO.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/cadastroController.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">   &lt;script src=<span class="string">"./public/js/bd/Usuario.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"./public/js/controllers/controller.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<p>Vamos agora executar nossa aplicação. Para isso execute o comando <code>npm start</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img16.png?raw=true" alt="Image 16"></p>
+<p><br></p>
+<p>Fazendo um cadastro.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img17.png?raw=true" alt="Image 17"></p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img18.png?raw=true" alt="Image 18"></p>
+<p><br></p>
+<p>Olhando se deu certo no banco de dados.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20uma%20aplica%C3%A7%C3%A3o%20Desktop%20com%20o%20Electron/Images/img19.png?raw=true" alt="Image 19"></p>
+<p><br></p>
+<h2 id="FIM"><a href="#FIM" class="headerlink" title="FIM!"></a>FIM!</h2><p>Bom, espero que esse tutorial ajude á você a iniciar com seus primeiros projetos com Electron e respectivamente Node.js. Quaisquer dúvidas pode entrar em contato comigo pelo meu email que está na página inicial do meu GitHub. Obrigado e até mais!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Um-tutorial-de-uma-simples-aplicacao-usando-Electron&quot;&gt;&lt;a href=&quot;#Um-tutorial-de-uma-simples-aplicacao-usando-Electron&quot; class=&quot;headerl
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Criando sua primeira aplicação Web com Node.js e Express.js</title>
+    <link href="https://netodeolino.com/2016/12/22/Criando-sua-primeira-aplicacao-Web-com-Node-js-e-Express-js/"/>
+    <id>https://netodeolino.com/2016/12/22/Criando-sua-primeira-aplicacao-Web-com-Node-js-e-Express-js/</id>
+    <published>2016-12-22T10:41:01.000Z</published>
+    <updated>2016-12-22T11:07:11.027Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Criando-sua-Primeira-Aplicacao-Web-com-Node-js-e-Express-js"><a href="#Criando-sua-Primeira-Aplicacao-Web-com-Node-js-e-Express-js" class="headerlink" title="Criando sua Primeira Aplicação Web com Node.js e Express.js"></a>Criando sua Primeira Aplicação Web com Node.js e Express.js</h1><h3 id="Pre-requisitos"><a href="#Pre-requisitos" class="headerlink" title="Pré-requisitos:"></a>Pré-requisitos:</h3><pre><code>1. Node.js
+2. Express.js
+</code></pre><p><br></p>
+<h2 id="PARTE-01-Criando-um-novo-Projeto"><a href="#PARTE-01-Criando-um-novo-Projeto" class="headerlink" title="PARTE 01 - Criando um novo Projeto"></a>PARTE 01 - Criando um novo Projeto</h2><p>Para criar um novo os passos são bastantes simples.</p>
+<p>Primeiro execute o comando abaixo e onde está escrito <code>site</code> troque pelo nome que deseja dar a seu projeto:<br><code>$ express site --ejs</code></p>
+<p>Alguns arquivos irão ser criados, como mostra na imagem abaixo.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_01.png?raw=true" alt="Image 01"></p>
+<p><br></p>
+<p>Agora entre no repositório e instale as dependências do projeto com o comando abaixo:<br><code>$ cd site &amp;&amp; npm install</code></p>
+<p><br></p>
+<p>A pasta onde seu projeto está localizado vai/ficar ser similar a imagem abaixo:</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_02.png?raw=true" alt="Image 02"></p>
+<p><br></p>
+<h2 id="PARTE-02-Entendendo-a-Estrutura-Basica-do-Express"><a href="#PARTE-02-Entendendo-a-Estrutura-Basica-do-Express" class="headerlink" title="PARTE 02 - Entendendo a Estrutura Básica do Express"></a>PARTE 02 - Entendendo a Estrutura Básica do Express</h2><h4 id="app-js"><a href="#app-js" class="headerlink" title="app.js"></a>app.js</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_03.png?raw=true" alt="Image 03"></p>
+<p>Neste arquivo é configurado, praticamente, todos os recursos necessários para o projeto, sendo este simples ou não. Algumas destas configurações são rotas, favicon do website, sessão, dentre outras coisas.</p>
+<p><br></p>
+<h4 id="package-json"><a href="#package-json" class="headerlink" title="package.json"></a>package.json</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_04.png?raw=true" alt="Image 04"></p>
+<p>Todas as dependências necessárias que surgirem durante o desenvolvimento do seu projeto você pode instalar por este arquivo executando o comando <code>npm install</code>. Por exemplo, suponha que você vá trabalhar com MySQL, então você vem até este arquivo e em “dependencies” adiciona <code>&quot;mysql&quot;: &quot;*&quot;</code>, com isto a última versão do MySQL é adicionado na sua pasta <code>node_modules</code> e fica disponível para ser usado por você no projeto usando o comando <code>require(“mysql”);</code>.</p>
+<p><br></p>
+<h4 id="index-ejs"><a href="#index-ejs" class="headerlink" title="index.ejs"></a>index.ejs</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_05.png?raw=true" alt="Image 05"></p>
+<p>Este arquivo é a página inicial do website, mas você pode adicionar uma outra em teu local alterando o valor de <code>response</code> ou <code>res</code> no index.js, mas geralmente é o mesmo não é alterado.</p>
+<p><br></p>
+<h4 id="index-js"><a href="#index-js" class="headerlink" title="index.js"></a>index.js</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_06.png?raw=true" alt="Image 06"></p>
+<p>Este arquivo é onde você faz o controle de suas páginas. Por exemplo, quando abrimos a primeira página do website, que é geralmente tratado como sendo somente uma barra <code>/</code>, o local que vai olhar qual arquivo <code>.ejs</code> deve tratar essa requisição é alguma função que está em <code>index.js</code>.</p>
+<p><br></p>
+<h4 id="style-css"><a href="#style-css" class="headerlink" title="style.css"></a>style.css</h4><p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_07.png?raw=true" alt="Image 07"></p>
+<p>É o arquivo CSS que já vem como padrão quando criamos o projeto, mas assim como o <code>index.ejs</code> o mesmo pode ser alterado e, inclusive, ser adicionado vários outros.</p>
+<p><br></p>
+<h2 id="PARTE-03-Fazendo-o-Upload-de-uma-Imagem"><a href="#PARTE-03-Fazendo-o-Upload-de-uma-Imagem" class="headerlink" title="PARTE 03 - Fazendo o Upload de uma Imagem"></a>PARTE 03 - Fazendo o Upload de uma Imagem</h2><p>Agora chegou o momento de brincar um pouco com Express. Neste tutorial vou dar um exemplo de uso de Express não tão comum (digamos assim). Vou mostrar a vocês como fazer o upload de imagens e espero que consigam entender um pouco do funcionamento do Express com este processo simples.</p>
+<p><br></p>
+<p>Vamos criar um arquivo chamado <code>saveImage.js</code> dentro da pasta <code>javascripts</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_08.png?raw=true" alt="Image 08"></p>
+<p>E adicionar o seguinte código dentro do arquivo <code>saveImage.js</code>.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> formidable = <span class="built_in">require</span>(<span class="string">'formidable'</span>);</div><div class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</div><div class="line"></div><div class="line">exports.saveImage = <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> form = <span class="keyword">new</span> formidable.IncomingForm();</div><div class="line"></div><div class="line">  form.parse(req, <span class="function"><span class="keyword">function</span>(<span class="params">err, fields, files</span>) </span>&#123;</div><div class="line">    res.writeHead(<span class="number">200</span>, &#123;<span class="string">'content-type'</span>: <span class="string">'text/plain'</span>&#125;);</div><div class="line">    res.write(<span class="string">'received upload:\n\n'</span>);</div><div class="line">    <span class="keyword">var</span> image = files.image</div><div class="line">      , image_upload_path_old = image.path</div><div class="line">      , image_upload_path_new = <span class="string">'./public/uploads/'</span></div><div class="line">      , image_upload_name = image.name</div><div class="line">      , image_upload_path_name = image_upload_path_new + image_upload_name</div><div class="line">      ;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (fs.existsSync(image_upload_path_new)) &#123;</div><div class="line">      fs.rename(</div><div class="line">        image_upload_path_old,</div><div class="line">        image_upload_path_name,</div><div class="line">        <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="built_in">console</span>.log(<span class="string">'Err: '</span>, err);</div><div class="line">          res.end(<span class="string">'Deu ERRO na hora de mover a imagem!'</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">var</span> msg = <span class="string">'Imagem '</span> + image_upload_name + <span class="string">' salva em: '</span> + image_upload_path_new;</div><div class="line">        <span class="built_in">console</span>.log(msg);</div><div class="line">        res.end(msg);</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">      fs.mkdir(image_upload_path_new, <span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          <span class="built_in">console</span>.log(<span class="string">'Err: '</span>, err);</div><div class="line">          res.end(<span class="string">'Deu ERRO na hora de criar o diretório!'</span>);</div><div class="line">        &#125;</div><div class="line">        fs.rename(</div><div class="line">          image_upload_path_old,</div><div class="line">          image_upload_path_name,</div><div class="line">          <span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</div><div class="line">          <span class="keyword">var</span> msg = <span class="string">'Imagem '</span> + image_upload_name + <span class="string">' salva em: '</span> + image_upload_path_new;</div><div class="line">          <span class="built_in">console</span>.log(msg);</div><div class="line">          res.end(msg);</div><div class="line">        &#125;);</div><div class="line">      &#125;);</div><div class="line">    &#125;</div><div class="line">  &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Agora em <code>index.ejs</code> adicione o seguinte código.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_09.png?raw=true" alt="Image 09"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"/upload"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></div><div class="line">    Select an image to upload:</div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"image"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"Upload Image"</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<p>Para que possamos utilizar o <code>formidable</code> precisamos instalar o mesmo em nossa pasta <code>node_modules</code>, e para fazer isto vamos usar o <code>package.json</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_10.png?raw=true" alt="Image 10"></p>
+<p>Adicionando o seguinte trecho:<br><code>$ &quot;formidable&quot;: &quot;*&quot;</code></p>
+<p>E com isso temos a última versão disponível para ser utilizada.</p>
+<p><br></p>
+<p>Por último vamos configurar o arquivo <code>index.js</code> para que quando for requisitado que uma imagem seja salva atravez da URL <code>/upload</code> o mesmo chame a função necessária para que a ação seja possível.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_11.png?raw=true" alt="Image 11"></p>
+<p>No arquivo vai ser adicionado duas linhas de código, as mesmas são:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> SaveImage = <span class="built_in">require</span>(<span class="string">'../public/javascripts/saveImage'</span>); <span class="comment">/* Na linha 05 da imagem acima */</span></div><div class="line">router.post(<span class="string">'/upload'</span>, SaveImage.saveImage); <span class="comment">/* Na linha 13 da imagem acima */</span></div></pre></td></tr></table></figure>
+<p><br></p>
+<h2 id="PARTE-04-Reinstalando-as-dependencias-e-Rodando-a-Aplicacao"><a href="#PARTE-04-Reinstalando-as-dependencias-e-Rodando-a-Aplicacao" class="headerlink" title="PARTE 04 - Reinstalando as dependências e Rodando a Aplicação"></a>PARTE 04 - Reinstalando as dependências e Rodando a Aplicação</h2><p>Vamos rodar novamente o comando <code>npm install</code> para que o <code>formidable</code> possa enfim ser adicionado e posteriormente vamos dar um <code>npm start</code> para que a aplicação execute.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_12.png?raw=true" alt="Image 12"></p>
+<p><br></p>
+<p>No navegador vamos digitar <code>localhost:3000</code> e a seguinte página irá ser aberta.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_13.png?raw=true" alt="Image 13"></p>
+<p><br></p>
+<p>Escolha uma imagem e clique em <code>Upload Image</code> para que ela seja salva.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_14.png?raw=true" alt="Image 14"></p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_15.png?raw=true" alt="Image 16"></p>
+<p>O retorno da ação anterior é uma mensagem na tela mostrando o local que a imagem foi salva.</p>
+<blockquote>
+<p>Em <code>saveImage.js</code> você pode mudar o local de upload de imagens.</p>
+</blockquote>
+<p><br></p>
+<p>Entrando na pasta <code>uploads</code> agora encontro a imagem salva.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_16.png?raw=true" alt="Image 16"></p>
+<p><br></p>
+<h2 id="FIM"><a href="#FIM" class="headerlink" title="FIM!"></a>FIM!</h2><p>Bom, espero que esse tutorial ajude á você a iniciar com seus primeiros projetos com Express e respectivamente Node.js. Quaisquer dúvidas pode entrar em contato comigo pelo meu email que está na página inicial do meu GitHub. Obrigado e até mais!</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Criando-sua-Primeira-Aplicacao-Web-com-Node-js-e-Express-js&quot;&gt;&lt;a href=&quot;#Criando-sua-Primeira-Aplicacao-Web-com-Node-js-e-Express-js&quot; 
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>Quem sou eu</title>
     <link href="https://netodeolino.com/2016/09/17/Who-is-me/"/>
     <id>https://netodeolino.com/2016/09/17/Who-is-me/</id>
     <published>2016-09-17T14:46:07.000Z</published>
-    <updated>2016-12-22T10:33:21.676Z</updated>
+    <updated>2016-12-22T10:54:27.195Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Ola"><a href="#Ola" class="headerlink" title="Olá"></a>Olá</h2><p>Oi, eu sou Neto Deolino, estudante de Sistemas de Informação na Universidade Federal do Ceará. Desejo poder ajudar vocês com meus posts e tutoriais :D</p>
 <p><img src="/images/neto.jpg" alt="Deolino Neto"></p>

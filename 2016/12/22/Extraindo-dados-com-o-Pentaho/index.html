@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Tutorials about IT">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Neto Deolino">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Extraindo dados com o Pentaho"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Tutorials about IT" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Neto Deolino"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Extraindo dados com o Pentaho - Neto Deolino</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Neto Deolino</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/netodeolino">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>Extraindo dados com o Pentaho</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2016-12-22
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h1 id="Um-Simples-Guia-Passo-a-Passo-Para-Voce-Que-Precisa-Extrair-Dados-De-Arquivos-Para-Seu-Banco-De-Dados"><a href="#Um-Simples-Guia-Passo-a-Passo-Para-Voce-Que-Precisa-Extrair-Dados-De-Arquivos-Para-Seu-Banco-De-Dados" class="headerlink" title="Um Simples Guia Passo-a-Passo Para Você Que Precisa Extrair Dados De Arquivos Para Seu Banco De Dados"></a>Um Simples Guia Passo-a-Passo Para Você Que Precisa Extrair Dados De Arquivos Para Seu Banco De Dados</h1><p>A primeira coisa que fazemos é criar um Banco no Postgres, no meu caso foi <code>aulapentaho</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_01.png?raw=true" alt="Image 01"></p>
+<p><br></p>
+<p>A segunda coisa a ser feita é criar a tabela que vai receber os dados da base que você escolheu. Para isso abra com o Office Writer o arquivo <code>.csv</code> da sua base de dados, pois com ela você ver os campos (atributos/coluna) e os possíveis tipos (int, varchar, …) necessários para criar sua tabela.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_02.png?raw=true" alt="Image 02"></p>
+<p><br></p>
+<p>Minha tabela, referente ao meu arquivo <code>.csv</code>, ficou como segue a imagem. Dei ao nome da tabela o mesmo nome de meu arquivo .csv neste caso, pois pode facilitar o entendimento do mesmo. Repare também que meus atributos DISCIPLINA e GABARITO eu coloquei com um varchar maior do que aparentemente eu precisava conforme a imagem anterior. Eu fiz isto para garantir que a extração não desse erro caso no meio da minha base .csv tenha tuplas com varchar maior que os primeiros valores que vi nos campos conforme imagem anterior. Só precisa fazer isto para campos do tipo string/varchar.<br><strong>NOTA:</strong> É mostrado os primeiros campos do arquivo!</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_03.png?raw=true" alt="Image 03"></p>
+<p><br></p>
+<p>Nesta imagem abro o Pentaho no diretório onde o armazenei. Ele executa com o arquivo <code>spoon.sh</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_04.png?raw=true" alt="Image 04"></p>
+<p><br></p>
+<p>Com o Pentaho aberto der dois cliques em Transformações.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_05.png?raw=true" alt="Image 05"></p>
+<p><br></p>
+<p>Em Input clique em <code>CSV File Input</code> arraste e solte no quadro branco.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_06.png?raw=true" alt="Image 06"></p>
+<p><br></p>
+<p>Vai ficar como na imagem. Faça o mesmo em Output com <code>Table Output</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_07.png?raw=true" alt="Image 07"></p>
+<p><br></p>
+<p>Dê um clique em Table output. Clique agora na seta dentro da caixa que fica a esquerda, arraste e solte em <code>CSV File Input</code> e clique em <code>Main Input...</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_08.png?raw=true" alt="Image 08"></p>
+<p><br></p>
+<p>Deve ficar como a imagem.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_09.png?raw=true" alt="Image 09"></p>
+<p><br></p>
+<p>Der dois cliques sobre <code>CSV input file</code>. Vai abrir a seguinte tela.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_10.png?raw=true" alt="Image 10"></p>
+<p><br></p>
+<p>Em <code>Filename</code> clique em <code>Navega...</code> e selecione o teu arquivo <code>.csv</code> que quer extrair (o mesmo que usou para criar a tabela no banco). Em <code>Delimiter</code> ponha o delimitador do arquivo que é geralmente “;” ou “ “ (ponto-e-vírgula ou espaço). Abra tua base com o Gedit para saber o delimitador correto. Depois clique em <code>Obtem Campos</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_11.png?raw=true" alt="Image 11"></p>
+<p><br></p>
+<p>Vai abrir a seguinte tela, clique em <code>OK</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_12.png?raw=true" alt="Image 12"></p>
+<p><br></p>
+<p>Nos tipos que forem do tipo String ponha o tamanho que colocou no teu varchar na hora de criar a tabela. Exemplo: O meu GABARITO eu coloquei varchar(2), aqui nesta tela o GABARITO aparece com tamanho 1, então eu editei para 2 na quarta coluna, conforme imagem abaixo. Depois clique em <code>Preview</code>, digite 100 e clique <code>OK</code>. Os valores da base devem ser mostrados em uma tela, depois é só fechar a tela de preview e clicar em <code>OK</code> na tela de CSV Input. Esta tela de preview somente serve para ver se tudo está indo como desejado.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_13.png?raw=true" alt="Image 13"></p>
+<p><br></p>
+<p>Agora em <code>Table Output</code> der dois cliques para abrir e vá em <code>New...</code> para criar uma nova conexão.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_14.png?raw=true" alt="Image 14"></p>
+<p><br></p>
+<p>Configure a conexão conforme teu banco, tabela e senha de acesso ao banco. Der um nome a conexão e clique em <code>Test</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_15.png?raw=true" alt="Image 15"></p>
+<p><br></p>
+<p>Se tudo ocorrer bem a mensagem a baixo irá aparecer. Agora clique em <code>OK</code> da mensagem e no <code>OK</code> de <code>Database Connection</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_16.png?raw=true" alt="Image 16"></p>
+<p><br></p>
+<p>Em <code>Target Schema</code> navegue e selecione public. Em <code>Target Table</code> selecione a tabela que você criou para armazenar os dados de extração. Depois selecione <code>Specify Database Fields</code> e abra a aba <code>Database fields</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_17.png?raw=true" alt="Image 17"></p>
+<p><br></p>
+<p>Clique em <code>Get Fields</code> e depois em <code>Enter Field Mapping</code> e clique em <code>OK</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_18.png?raw=true" alt="Image 18"></p>
+<p><br></p>
+<p>Clique em <code>SQL</code> e a tela abaixo irá aparecer. Depois clique em <code>Execute</code>. Feche as telas que abrirem posteriormente.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_19.png?raw=true" alt="Image 19"></p>
+<p><br></p>
+<p>Agora clica em <code>OK</code> na tela de Table output.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_20.png?raw=true" alt="Image 20"></p>
+<p><br></p>
+<p>Nesta tela clique na opção de <code>Play</code> para executar a transformação.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_21.png?raw=true" alt="Image 21"></p>
+<p><br></p>
+<p>Nesta tela clica em <code>Run</code>.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_22.png?raw=true" alt="Image 22"></p>
+<p><br></p>
+<p>Nesta em <code>Sim</code> para salvar sua transformação.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_23.png?raw=true" alt="Image 23"></p>
+<p><br></p>
+<p>Salve a transformação no local que desejar.</p>
+<blockquote>
+<p>Nota do tutor: Meio que obrigatório!</p>
+</blockquote>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_24.png?raw=true" alt="Image 24"></p>
+<p><br></p>
+<p>Imagem da transformação finalizada. Sorria :) Este passo pode demorar muito tempo dependendo do tamanho da base!</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_25.png?raw=true" alt="Image 25"></p>
+<p><br></p>
+<p>De volta ao Postgres, crie novamente a chave primária da tabela, pois o Pentaho a exclui. Clique sobre a tabela com o botão direito do mouse e vá em <code>New Object</code> e <code>New Primary Key</code>. Vá até a aba <code>Columns</code> e em <code>Column</code> selecione a coluna que deve ser chave primária, clique em <code>Add</code> e depois em <code>OK</code>. Este passo pode demorar um pouco, depende do tamanho de tua base, porque o Postgres procura nesta coluna valores duplicados, pois caso haja não pode ser chave primária.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_26.png?raw=true" alt="Image 26"></p>
+<p><br></p>
+<p>Por fim faça uma consulta (select) em teu banco para ver se está tudo OK com a extração. Não se esqueça de limitar a consulta, pois iria demorar bastante para o Postgres ler toda a base e imprimir na tela.</p>
+<p><img src="https://github.com/netodeolino/Tutoriais/blob/master/Extraindo%20dados%20com%20o%20Pentaho/Images/img_27.png?raw=true" alt="Image 27"></p>
+<p><br></p>
+<h2 id="FIM"><a href="#FIM" class="headerlink" title="FIM!"></a>FIM!</h2><p>Eu espero que este tutorial tenha sido útil! O mesmo foi criado por mim com a intenção de ajudar qualquer pessoa que precise extrair dados de algum local para um Banco de Dados específico. Apesar do tutorial ter sido feito usando como exemplo o Postgres e um arquivo <code>.CSV</code>, acredito eu que fique muito mais fácil para alguns realizar o procedimento com outros SGBD’s e outros arquivos como um <code>.TXT</code>, pois vai mudar somente algumas configurações simples de serem feitas.</p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+    <h3>Comments:</h3>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+                        <li>
+                            <a href="https://www.facebook.com/netodeolino" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/netodeolino" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="https://linkedin.com/in/netodeolino" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                        <li>
+                            <a href="mailto:netodeolino@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'netodeolino';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
