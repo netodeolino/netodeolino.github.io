@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+  content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Neto Deolino</title>
+
+<!-- Icon favicon -->
+<link rel="shortcut icon" href="../img/favicon.ico" />
+
+<!-- Bootstrap core CSS -->
+<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom fonts for this template -->
+<link href="../vendor/font-awesome/css/font-awesome.min.css"
+  rel="stylesheet" type="text/css">
+<link
+  href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic'
+  rel='stylesheet' type='text/css'>
+<link
+  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+  rel='stylesheet' type='text/css'>
+
+<!-- Custom styles for this template -->
+<link href="../css/clean-blog.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top"
+    id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="../index.html">Neto Deolino</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button"
+        data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        Menu <i class="fa fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">Sobre</a></li>
+			<li class="nav-item">
+              <a class="nav-link" href="../curriculo.html">Currículo</a>
+            </li>
+          <li class="nav-item"><a class="nav-link"
+            href="../contact.html">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="masthead"
+    style="background-image: url('../img/teste.jpg')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="post-heading">
+            <h1>Criando sua primeira aplicação Web com Node.js e
+              Express.js</h1>
+            <h2 class="subheading">Desenvolvimento</h2>
+            <span class="meta">Postado por <a target="_blank"
+              href="https://www.linkedin.com/in/netodeolino/">Neto Deolino</a>
+              em 22 de dezembro, 2016
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Post Content -->
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <h3 id="Pre-requisitos">
+            <a href="#Pre-requisitos" class="headerlink"
+              title="Pré-requisitos:"></a>Pré-requisitos:
+          </h3>
+            <code>1. Node.js</code>
+            <br/>
+            <code>2. Express.js</code>
+          <p>
+            <br>
+          </p>
+          <h2 id="PARTE-01-Criando-um-novo-Projeto">
+            <a href="#PARTE-01-Criando-um-novo-Projeto" class="headerlink"
+              title="PARTE 01 - Criando um novo Projeto"></a>PARTE 01 - Criando um novo Projeto
+          </h2>
+          <p>Para criar um novo os passos são bastantes simples.</p>
+          <p>
+            Primeiro execute o comando abaixo e onde está escrito
+            <code>site</code>
+            troque pelo nome que deseja dar a seu projeto:<br>
+            <code>$ express site --ejs</code>
+          </p>
+          <p>Alguns arquivos irão ser criados, como mostra na imagem
+            abaixo.</p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_01.png?raw=true"
+              alt="Image 01">
+          </p>
+          <p>
+            <br>
+          </p>
+          <p>
+            Agora entre no repositório e instale as dependências do projeto
+            com o comando abaixo:<br>
+            <code>$ cd site &amp;&amp; npm install</code>
+          </p>
+          <p>
+            <br>
+          </p>
+          <p>A pasta onde seu projeto está localizado vai/ficar ser
+            similar a imagem abaixo:</p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_02.png?raw=true"
+              alt="Image 02">
+          </p>
+          <p>
+            <br>
+          </p>
+          <h2 id="PARTE-02-Entendendo-a-Estrutura-Basica-do-Express">
+            <a href="#PARTE-02-Entendendo-a-Estrutura-Basica-do-Express"
+              class="headerlink"
+              title="PARTE 02 - Entendendo a Estrutura Básica do Express"></a>PARTE
+            02 - Entendendo a Estrutura Básica do Express
+          </h2>
+          <h4 id="app-js">
+            <a href="#app-js" class="headerlink" title="app.js"></a>app.js
+          </h4>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_03.png?raw=true"
+              alt="Image 03">
+          </p>
+          <p>Neste arquivo é configurado, praticamente, todos os recursos
+            necessários para o projeto, sendo este simples ou não. Algumas
+            destas configurações são rotas, favicon do website, sessão, dentre
+            outras coisas.</p>
+          <p>
+            <br>
+          </p>
+          <h4 id="package-json">
+            <a href="#package-json" class="headerlink" title="package.json"></a>package.json
+          </h4>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_04.png?raw=true"
+              alt="Image 04">
+          </p>
+          <p>
+            Todas as dependências necessárias que surgirem durante o
+            desenvolvimento do seu projeto você pode instalar por este arquivo
+            executando o comando
+            <code>npm install</code>. Por exemplo, suponha que você vá trabalhar com MySQL, então você vem até este arquivo e em “dependencies” adiciona
+            <code>&quot;mysql&quot;: &quot;*&quot;</code>, com isto a última versão do MySQL é adicionado na sua pasta <code>node_modules</code>
+            e fica disponível para ser usado por você no projeto usando o comando
+            <code>require(“mysql”);</code>.
+          </p>
+          <p>
+            <br>
+          </p>
+          <h4 id="index-ejs">
+            <a href="#index-ejs" class="headerlink" title="index.ejs"></a>index.ejs
+          </h4>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_05.png?raw=true"
+              alt="Image 05">
+          </p>
+          <p>
+            Este arquivo é a página inicial do website, mas você pode
+            adicionar uma outra em teu local alterando o valor de
+            <code>response</code> ou <code>res</code>
+            no index.js, mas geralmente é o mesmo não é alterado.
+          </p>
+          <p>
+            <br>
+          </p>
+          <h4 id="index-js">
+            <a href="#index-js" class="headerlink" title="index.js"></a>index.js
+          </h4>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_06.png?raw=true"
+              alt="Image 06">
+          </p>
+          <p>
+            Este arquivo é onde você faz o controle de suas páginas. Por
+            exemplo, quando abrimos a primeira página do website, que é
+            geralmente tratado como sendo somente uma barra
+            <code>/</code>, o local que vai olhar qual arquivo
+            <code>.ejs</code>
+            deve tratar essa requisição é alguma função que está em
+            <code>index.js</code>.
+          </p>
+          <p>
+            <br>
+          </p>
+          <h4 id="style-css">
+            <a href="#style-css" class="headerlink" title="style.css"></a>style.css
+          </h4>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_07.png?raw=true"
+              alt="Image 07">
+          </p>
+          <p>
+            É o arquivo CSS que já vem como padrão quando criamos o projeto,
+            mas assim como o
+            <code>index.ejs</code>
+            o mesmo pode ser alterado e, inclusive, ser adicionado vários
+            outros.
+          </p>
+          <p>
+            <br>
+          </p>
+          <h2 id="PARTE-03-Fazendo-o-Upload-de-uma-Imagem">
+            <a href="#PARTE-03-Fazendo-o-Upload-de-uma-Imagem"
+              class="headerlink"
+              title="PARTE 03 - Fazendo o Upload de uma Imagem"></a>PARTE 03 -
+            Fazendo o Upload de uma Imagem
+          </h2>
+          <p>Agora chegou o momento de brincar um pouco com Express.
+            Neste tutorial vou dar um exemplo de uso de Express não tão comum
+            (digamos assim). Vou mostrar a vocês como fazer o upload de
+            imagens e espero que consigam entender um pouco do funcionamento
+            do Express com este processo simples.</p>
+          <p>
+            <br>
+          </p>
+          <p>
+            Vamos criar um arquivo chamado
+            <code>saveImage.js</code> dentro da pasta <code>javascripts</code>.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_08.png?raw=true"
+              alt="Image 08">
+          </p>
+          <p>
+            E adicionar o seguinte código dentro do arquivo <code>saveImage.js</code>.
+          </p>
+          <script src="https://gist.github.com/netodeolino/39b80e59ce97e7c733c9bb5ed3125ba2.js">
+          </script>
+          <p>
+            Agora em <code>index.ejs</code> adicione o seguinte código.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_09.png?raw=true"
+              alt="Image 09">
+          </p>
+          <script src="https://gist.github.com/netodeolino/844c4489ce89cabc9ff95348bee04c21.js">
+          </script>
+          <p>
+            <br>
+          </p>
+          <p>
+            Para que possamos utilizar o
+            <code>formidable</code> precisamos instalar o mesmo em nossa pasta
+            <code>node_modules</code>, e para fazer isto vamos usar o <code>package.json</code>.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_10.png?raw=true"
+              alt="Image 10">
+          </p>
+          <p>
+            Adicionando o seguinte trecho:<br>
+            <code>$ &quot;formidable&quot;: &quot;*&quot;</code>
+          </p>
+          <p>E com isso temos a última versão disponível para ser utilizada.</p>
+          <p>
+            <br>
+          </p>
+          <p>
+            Por último vamos configurar o arquivo
+            <code>index.js</code>
+            para que quando for requisitado que uma imagem seja salva atravez da URL
+            <code>/upload</code>
+            o mesmo chame a função necessária para que a ação seja possível.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_11.png?raw=true"
+              alt="Image 11">
+          </p>
+          <p>No arquivo vai ser adicionado duas linhas de código, as mesmas são:</p>
+          <script src="https://gist.github.com/netodeolino/1fee0cf91e353312dab8a6378d211a77.js">
+          </script>
+          <p>
+            <br>
+          </p>
+          <h2
+            id="PARTE-04-Reinstalando-as-dependencias-e-Rodando-a-Aplicacao">
+            <a
+              href="#PARTE-04-Reinstalando-as-dependencias-e-Rodando-a-Aplicacao"
+              class="headerlink"
+              title="PARTE 04 - Reinstalando as dependências e Rodando a Aplicação"></a>PARTE
+            04 - Reinstalando as dependências e Rodando a Aplicação
+          </h2>
+          <p>
+            Vamos rodar novamente o comando
+            <code>npm install</code>
+            para que o
+            <code>formidable</code>
+            possa enfim ser adicionado e posteriormente vamos dar um
+            <code>npm start</code>
+            para que a aplicação execute.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_12.png?raw=true"
+              alt="Image 12">
+          </p>
+          <p>
+            <br>
+          </p>
+          <p>
+            No navegador vamos digitar <code>localhost:3000</code> e a seguinte página irá ser aberta.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_13.png?raw=true"
+              alt="Image 13">
+          </p>
+          <p>
+            <br>
+          </p>
+          <p>
+            Escolha uma imagem e clique em <code>Upload Image</code> para que ela seja salva.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_14.png?raw=true"
+              alt="Image 14">
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_15.png?raw=true"
+              alt="Image 16">
+          </p>
+          <p>O retorno da ação anterior é uma mensagem na tela mostrando
+            o local que a imagem foi salva.</p>
+          <blockquote>
+            <p>
+              Em
+              <code>saveImage.js</code> você pode mudar o local de upload de imagens.
+            </p>
+          </blockquote>
+          <p>
+            <br>
+          </p>
+          <p>
+            Entrando na pasta <code>uploads</code> agora encontro a imagem salva.
+          </p>
+          <p>
+            <img style="width: 100%"
+              src="https://github.com/netodeolino/Tutoriais/blob/master/Criando%20sua%20Primeira%20Aplica%C3%A7%C3%A3o%20Web%20com%20Node.js%20e%20Express.js/Images/img_16.png?raw=true"
+              alt="Image 16">
+          </p>
+          <p>
+            <br>
+          </p>
+          <h2 id="FIM">
+            <a href="#FIM" class="headerlink" title="FIM!"></a>FIM!
+          </h2>
+          <p>Bom, espero que esse tutorial ajude á você a iniciar com
+            seus primeiros projetos com Express e respectivamente Node.js.
+            Quaisquer dúvidas pode entrar em contato comigo pelo meu email que
+            está na página inicial do meu GitHub. Obrigado e até mais!</p>
+
+          <!-- Comments -->
+          <hr />
+          <h3>Comentários:</h3>
+          <div id="disqus_thread">
+            <div id="disqus_thread"></div>
+          <script>
+            /**
+            *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+            *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+            var disqus_config = function () {
+              this.page.url = "https://netodeolino.github.io/Criando-sua-primeira-aplicacao-Web-com-Node-js-e-Express-js";  // Replace PAGE_URL with your page's canonical URL variable
+              //this.page.identifier = <%= dados.id_postagem %>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+              //alert(<%= dados.titulo %>);
+            };
+
+            (function() { // DON'T EDIT BELOW THIS LINE
+              var d = document, s = d.createElement('script');
+              s.src = 'https://deolinoneto.disqus.com/embed.js';
+              s.setAttribute('data-timestamp', +new Date());
+              (d.head || d.body).appendChild(s);
+            })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          </div>
+        </div>
+      </div>
+  </article>
+
+  <hr>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item"><a href="#"> <span
+                class="fa-stack fa-lg"> <i
+                  class="fa fa-circle fa-stack-2x"></i> <i
+                  class="fa fa-envelope-o fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></li>
+            <li class="list-inline-item"><a href="#"> <span
+                class="fa-stack fa-lg"> <i
+                  class="fa fa-circle fa-stack-2x"></i> <i
+                  class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></li>
+            <li class="list-inline-item"><a href="#"> <span
+                class="fa-stack fa-lg"> <i
+                  class="fa fa-circle fa-stack-2x"></i> <i
+                  class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a></li>
+          </ul>
+          <p class="copyright text-muted">Copyright &copy; Neto Deolino
+            2018</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="../js/clean-blog.min.js"></script>
+
+  <script type="text/javascript">
+    var disqus_shortname = 'netodeolino';
+
+    (function() {
+      var dsq = document.createElement('script');
+      dsq.type = 'text/javascript';
+      dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document
+          .getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+  </script>
+</body>
+
+</html>
