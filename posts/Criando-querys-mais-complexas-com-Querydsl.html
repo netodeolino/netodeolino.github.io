@@ -59,7 +59,7 @@
 
   <!-- Page Header -->
   <header class="masthead"
-    style="background-image: url('../img/uberhack.jpg')">
+    style="background-image: url('../img/sql.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -84,7 +84,7 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <h2 id="">
             <a href="#PARTE-01-Quando-e-por-que-usar-o-QueryDSL" class="headerlink"
-              title="Campeão da UberHACK Fortaleza"></a>
+              title="Quando e por que usar o QueryDSL?"></a>
               PARTE 01 - Quando e por que usar o QueryDSL?
           </h2>
           <p>
@@ -92,19 +92,34 @@
           </p>
           <p>
             <img style="width: 100%"
-              src="https://scontent.ffor13-1.fna.fbcdn.net/v/t1.0-9/30411590_1685125778242646_4959759346440339456_n.jpg?_nc_cat=0&oh=7040fd8fdc33cce022f0a0f086614152&oe=5B5F77FC"
+              src="../img/parte-1-qdsl.png"
               alt="Image 01">
           </p>
           <h2 id="">
-            <a href="#PARTE-01-Configurando-o-QueryDSL" class="headerlink"
-              title="Campeão da UberHACK Fortaleza"></a>
+            <a href="#PARTE-02-Configurando-o-QueryDSL" class="headerlink"
+              title="Configurando o QueryDSL"></a>
               PARTE 02 - Configurando o QueryDSL
           </h2>
           <p>
-            A competição ocorreu durante os dias 7 e 8 de abril de 2018 e durou mais de 30 horas. Foi fantástica a experiência e tudo que vivi nesses 2 dias de competição. Além disso, saímos de lá campeões e com o desafio de representar Fortaleza na competição nacional que ocorrerá em Junho.
+            Primeiro adicionamos as dependências do QueryDSL no arquivo <code>pom.xml</code> do nosso projeto Java com Spring.
+          </p>
+          <figure class="highlight xml">
+            <script src="https://gist.github.com/netodeolino/a44f4daacbc0bcd857012a53d0982b49.js">
+            </script>
+          </figure>
+          <p>
+            Após adicionar as depêndencias é necessário atualizar o projeto fazendo um Clean e um Update no maven (caso não esteja utilizando o maven, realizar procedimento de acordo com a ferramenta de seu uso atual) para que os tipos Query de cada classe sejam gerados.
           </p>
           <p>
-            Em um outro post pretendo falar mais um pouco sobre tudo que ocorreu lá no evento e também sobre a Quem Leva, a startup criada por nós com o intuito de melhorar a mobilidade urbana e, consequentemente, a vida de muitas pessoas :)
+            Os tipos Query de cada classe são gerados para serem utilizados pelo QueryDSL nas suas consultas ao banco de dados.
+          </p>
+          <h2 id="">
+            <a href="#PARTE-03-Fazendo-consultas-com-o-QueryDSL" class="headerlink"
+              title="Fazendo consultas com o QuerySQL"></a>
+              PARTE 03 - Fazendo consultas com o QuerySQL
+          </h2>
+          <p>
+            Pensando em um cenário simples
           </p>
 
           <!-- Comments -->
@@ -117,7 +132,7 @@
             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
             var disqus_config = function () {
-              this.page.url = "https://netodeolino.github.io/Campeao-da-uberhack-fortaleza";  // Replace PAGE_URL with your page's canonical URL variable
+              this.page.url = "https://netodeolino.github.io/Criando-querys-mais-complexas-com-QueryDSL";  // Replace PAGE_URL with your page's canonical URL variable
               //this.page.identifier = <%= dados.id_postagem %>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
               //alert(<%= dados.titulo %>);
             };
