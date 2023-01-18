@@ -1,8 +1,6 @@
 # Neto Deolino
 
-## Analista de Sistemas
+## Senior Software Engineer
 
-### Graduado em Sistemas de Informação pela Universidade Federal do Ceará (UFC)
-
-[LinkedIn](https://linkedin.com/in/netodeolino)
+[LinkedIn](https://www.linkedin.com/in/netodeolino)
 [Blog](https://netodeolino.github.io)
