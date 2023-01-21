@@ -59,17 +59,17 @@
 
   <!-- Page Header -->
   <header class="masthead"
-    style="background-image: url('../img/sql.jpg')">
+    style="background-image: url('../img/flag-europe.png')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="post-heading">
-            <h1>Criando querys mais complexas com QueryDSL</h1>
+            <h1>Dev na Europa, vale a pena?</h1>
             <h2 class="subheading">Desenvolvimento</h2>
             <span class="meta">Postado por <a target="_blank"
               href="https://www.linkedin.com/in/netodeolino/">Neto Deolino</a>
-              em 5 de setembro, 2018
+              em 22 de janeiro, 2023
             </span>
           </div>
         </div>
@@ -85,59 +85,87 @@
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <h2 id="">
-            <a href="#PARTE-01-Quando-e-por-que-usar-o-QueryDSL" class="headerlink"
-              title="Quando e por que usar o QueryDSL?"></a>
-              PARTE 01 - Quando e por que usar o QueryDSL?
+            <a href="#Desenvolvedor" class="headerlink" title="Ser desenvolvedor de software na Europa é tão bom quanto dizem?"></a>
+              Ser desenvolvedor de software na Europa é tão bom quanto dizem?
           </h2>
           <p>
-            O QueryDSL pode ser usado em seu projeto quando existir a necessidade de fazer consultas no banco de dados que sejam mais complexas, seja com uso de alguma ferramenta de ORM, como o Hibernate, ou com o SQL. Digamos então que você possui uma tela de pesquisa com muitos campos para filtro da mesma. Fazer uma pesquisa filtrando os dados buscados no banco de dados através do uso somente do SQL, dependendo da quantidade de campos e das restrições necessárias para que seja retornado os dados corretos, pode ficar bastante complexo. Mesmo com o uso de uma ferramenta como o Hibernate junto com o JpaRepository (Java) a pesquisa ainda fica difícil de ser implementada, justamente pela quantidade de campos e restrições que podem existir. É a partir desse momento que o QueryDSL entra em cena :)
+            O sonho de muitos programadores é um dia poder trabalhar na Europa. Este também era um dos meus sonhos e felizmente
+            eu pude realizar a partir de novembro de 2021 quando eu comecei a trabalhar remotamente para uma empresa de Portugal.
+            A partir dessa empresa portuguesa eu prestava serviços, como consultor de software, para uma empresa da França, mais precisamente
+            como Backend Developer usando tecnologias tais como Java, Spring e Jenkins.
           </p>
           <p>
-            <img style="width: 100%"
-              src="../img/parte-1-qdsl.png"
-              alt="Image 01">
+            Mas dado essas informações iniciais vamos ao que interessa, vale a pena largar mão do seu país e se aventurar em terras
+            estrangeiras? Primeiro irei trazer abaixo algumas Vantagens e Desvantagens e em seguida, na Conclusão, darei a <code>minha
+            opinião</code> sobre o tema!
           </p>
+          
           <h2 id="">
-            <a href="#PARTE-02-Configurando-o-QueryDSL" class="headerlink"
-              title="Configurando o QueryDSL"></a>
-              PARTE 02 - Configurando o QueryDSL
+            <a href="#Vantagens" class="headerlink" title="Vantagens"></a>
+              Vantagens
           </h2>
           <p>
-            Primeiro adicionamos as dependências do QueryDSL no arquivo <code>pom.xml</code> do nosso projeto Java com Spring.
-          </p>
-          <figure class="highlight xml">
-            <script src="https://gist.github.com/netodeolino/a44f4daacbc0bcd857012a53d0982b49.js">
-            </script>
-          </figure>
-          <p>
-            Após adicionar as depêndencias é necessário atualizar o projeto fazendo um Clean e um Update no maven (caso não esteja utilizando o maven, realizar procedimento de acordo com a ferramenta de seu uso atual) para que os tipos Query de cada classe sejam gerados.
+            Começando pelas mais comuns posso destacar facilmente a <code>Segurança</code>, <code>Poder de Compra</code> (principalmente
+            em países como Alemanha, Espanha, Irlanda, Suíça e Holanda), <code>Qualidade de Ensino</code> (para os que são papais e/ou
+            mamães) e <code>Turismo</code> (é muito fácil e barato viajar para demais países da Europa).
           </p>
           <p>
-            Os tipos Query de cada classe são gerados para serem utilizados pelo QueryDSL nas suas consultas ao banco de dados.
+            É importante destacar que existem várias outras vantagens, porém que são bem mais particulares. Por exemplo, Portugal possui
+            as <code>Quatro Estações do Ano Bem Definidas</code> e eu realmente gosto de poder viver elas e isto certamente não é do agrado
+            pessoal de muitas outras pessoas. Outra vantagem é o <code>Mercado Bastante Aquecido</code>, principalmente se tratando de
+            Portugal, pois muitas empresas de outros países da União Europeia abrem filiais por aqui uma vez que o valor da mão de obra de
+            Portugal é mais barata se comparado com economias mais fortes como a da França ou Alemanha.
           </p>
+          <p>
+            Para finalizar posso destacar vantagens, principalmente em Portugal, como: boa conexão de internet, boas comidas, restaurantes
+            baratos, povo educado e respeitador, muitos eventos grátis (principalmente no verão) e o multiculturalismo.
+          </p>
+
           <h2 id="">
-            <a href="#PARTE-03-Fazendo-consultas-com-o-QueryDSL" class="headerlink"
-              title="Fazendo consultas com o QuerySQL"></a>
-              PARTE 03 - Fazendo consultas com o QuerySQL
+            <a href="#Desvantagens" class="headerlink" title="Desvantagens"></a>
+              Desvantagens
           </h2>
           <p>
-            Digamos que em nosso sistema temos a seguinte estrutura, onde uma Pessoa possui um ou mais Cargo e essa lista de Cargo é FetchType LAZY, ou seja, se quisermos recuperar as informações dessa lista precisamos fazer um JOIN entre Pessoa e Cargo.
+            É aqui que o "bicho pega" :) <br>
+            Brincadeiras à parte, não existem países perfeitos, muito menos um continente inteiro! Por isso é
+            aqui nas desvantagens que sua atenção tem que ficar dobrada, afinal ninguém quer passar perrengue longe de casa.
           </p>
-          <figure class="highlight xml">
-            <script src="https://gist.github.com/netodeolino/4b66217c35058b0608f7933f82b28f6f.js">
-            </script>
-          </figure>
           <p>
-            Recuperar todos os usuários do sistema sem ter o problema de LazyInitializationException, por exemplo, se torna bastante simples com o QueryDSL, pois basta fazer uma consulta como a figura abaixo.
-            Com o <code>query</code> adicionamos as condições que quisermos, e claro, elas podem ser passadas como parâmetro do método também!
+            Logo de cara a principal desvantagem que nos "faz sofrer" é a <code>Burocracia</code>. Isso mesmo! Não é porque deixamos o
+            nosso país que vamos nos ver livre dela. Pelo contrário, vamos aprender que aqui na Europa existe tanta burocracia quanto no
+            Brasil. Em Portugal o problema se agrava pela falta de padronização entre os documentos necessários e por isso é melhor estar
+            preparado para tal.
           </p>
-          <figure class="highlight xml">
-            <script src="https://gist.github.com/netodeolino/da90e6edd16608ee300f3ebe6436c346.js">
-            </script>
-          </figure>
           <p>
-            E por momento é isso pessoal. Quaisquer dúvidas, sugestões e afins é só comentar aqui embaixou ou entrar em contato por email. Em uma outra postagem vou falar sobre o MyBatis para também fazer consultas
-            mais complexas com Java, bancos relacionais e Spring :)
+            <code>Solidão/Saudade:</code> este é o motivo que faz muitos voltarem. Preciso ser sincero que esses sentimentos irão viver
+            com muitos de vocês, independentemente da quantidade de meses ou anos que estão vivendo fora, pois eles vão e voltam. Vai por
+            mim, acompanhar de longe seus sobrinhos crescendo, amigos casando e ver a família reunida naquelas datas especiais não é fácil!
+          </p>
+          <p>
+            Por fim, a <code>Carga Tributária</code>. A tão sonhada qualidade de vida Europeia não vem de graça. Pelo contrário, vai custar
+            um percentual alto do seu salário. Porém pelo menos podemos viver no conforto da nossa mente sabendo que esse "dinheiro
+            perdido" volta em forma de boas rodovias, transporte público de qualidade, segurança e educação.
+          </p>
+
+          <h2 id="">
+            <a href="#Conclusao" class="headerlink" title="Conclusão"></a>
+              Conclusão
+          </h2>
+          <p>
+            Como prometido, agora é o momento de passar minha opinião e dizer se vale a pena ou não ser desenvolvedor na Europa. E minha
+            resposta é: depende :) <br>
+            Calma, deixa-me esclarecer abaixo algumas coisas para te ajudar.
+          </p>
+          <p>
+            Primeiro é muito importante que você faça uma análise do que te faz querer deixar o Brasil e comparar com essas vantagens e
+            desvantagens que falei acima, pois somente você pode chegar a uma conclusão e dizer se vale ou não a pena. Além disso tem o
+            aspecto profissional envolvido, pois não é só mudar de país e pronto, problemas resolvidos! É importante que você seja feliz
+            com a oportunidade de trabalho que recebeu, afinal você vai dedicar muitas horas da sua vida nele.
+          </p>
+          <p>
+            Para finalizar, faço também uma alerta ao lado financeiro. Analise bastante o custo de vida para fazer a sua pedida salarial
+            e com isto poderá chegar aqui e viver bem também no aspecto financeiro. E é isso! Sinta-se a vontade para me contactar caso
+            surjam dúvidas sobre temas que não comentei aqui no texto, pois estarei aberto a ajudar sempre :)
           </p>
 
           <!-- Comments -->
@@ -150,9 +178,7 @@
             *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
             var disqus_config = function () {
-              this.page.url = "https://netodeolino.github.io/posts/Criando-querys-mais-complexas-com-QueryDSL";  // Replace PAGE_URL with your page's canonical URL variable
-              //this.page.identifier = <%= dados.id_postagem %>; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-              //alert(<%= dados.titulo %>);
+              this.page.url = "https://netodeolino.github.io/posts/dev-na-europa.html";
             };
 
             (function() { // DON'T EDIT BELOW THIS LINE
