@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport"
     content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Ser desenvolvedor de software na Europa é tão bom quanto dizem?">
+  <meta name="description" content="Uma alternativa simples da Arquitetura Hexagonal">
   <meta name="author" content="Neto Deolino">
   <meta property="og:title" content="Arquitetura Hexagonal simplificada" />
   <meta property="og:url" content="https://netodeolino.github.io/posts/simplified-hexagonal" />
@@ -105,12 +105,12 @@
             e que você pode torná-la mais simples ou mais complexa dependendo das suas necessidades!</code>
           </p>
           
-          <h2 id="">
+          <h2>
             <a href="#Package-01" class="headerlink" title="Estrutura inicial dos pacotes da aplicação"></a>
               Estrutura inicial dos pacotes da aplicação
           </h2>
-          <p>
-            <img style="width: 100%"
+          <p align="center">
+            <img style="width: 40%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-01.png"
               alt="Estrutura inicial">
           </p>
@@ -162,13 +162,13 @@
             através de Mappers, Builders e similares. Aqui nesse meu projeto eu não dou importância a esse nível tão alto de isolamento
             entre os pacotes quando se trata dessas classes de domínio, sejam elas entidades de negócio ou não.
           </p>
-          <p>
-            <img style="width: 100%"
+          <p align="center">
+            <img style="width: 40%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-02.png"
               alt="Sub-packages domain, application e adapter">
           </p>
 
-          <h2 id="">
+          <h2>
             <a href="#Aprofundando" class="headerlink" title="Aprofundando"></a>
               Aprofundando no exemplo
           </h2>
@@ -178,8 +178,8 @@
             por operações de banco de dados na tabela <code>EXAMPLE_ONE</code> da entidade <code>ExampleOne</code>
             (com.hexagonal.simplified.domain.entity).
           </p>
-          <p>
-            <img style="width: 100%"
+          <p align="center">
+            <img style="width: 40%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-03.png"
               alt="Package adapter">
           </p>
@@ -189,8 +189,8 @@
             sendo os <b>UseCase</b> as interfaces de entrada e os <b>Port</b> as interfaces de saída. Nesse mesmo package também fica
             o sub-package <code>usecase</code> que é onde fica todo código de implementação das interfaces de entrada (regras de negócio).
           </p>
-          <p>
-            <img style="width: 100%"
+          <p align="center">
+            <img style="width: 40%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-04.png"
               alt="Package application">
           </p>
@@ -200,12 +200,16 @@
             DTOs e similares. Caso use projections em seu projeto você também pode criar aqui um sub-package para adicionar as respectivas
             interfaces do projection.
           </p>
-          <p>
-            <img style="width: 100%"
+          <p align="center">
+            <img style="width: 40%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-05.png"
               alt="Package domain">
           </p>
 
+          <h2>
+            <a href="#Fim" class="headerlink" title="Fim"></a>
+            Fim!
+          </h2>
           <p>
             Esse é o resumo da ópera! Caso surjam dúvidas deixe o seu comentário que irei responder o mais breve possível. O código
             fonte do projeto está disponível neste link:
