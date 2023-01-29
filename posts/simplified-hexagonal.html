@@ -75,7 +75,7 @@
             <h2 class="subheading">Desenvolvimento</h2>
             <span class="meta">Postado por <a target="_blank"
               href="https://www.linkedin.com/in/netodeolino/">Neto Deolino</a>
-              em 28 de janeiro, 2023
+              em 29 de janeiro, 2023
             </span>
           </div>
         </div>
@@ -93,7 +93,7 @@
             Uma alternativa simplificada da Arquitetura Hexagonal
           </h1>
           <p>
-            Imagina que você precisa criar, na empresa em que trabalha ou em um projeto pessoal, um novo Microservice usando Java e
+            Imagine que você precisa criar, na empresa em que trabalha ou em um projeto pessoal, um novo Microservice usando Java e
             esse projeto tem que ter uma estrutura de código limpa e, principalmente, organizada de tal forma que possa ser incrementada
             aos poucos de acordo com novos Casos de Uso. Diante disso, você faz uma rápida busca na internet e encontra a tão famosa
             Arquitetura Hexagonal.
@@ -110,14 +110,15 @@
               Estrutura inicial dos pacotes da aplicação
           </h2>
           <p align="center">
-            <img style="width: 40%"
+            <img style="width: 45%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-01.png"
               alt="Estrutura inicial">
           </p>
           <p>
             Na imagem acima podemos ver a estrutura base da aplicação dentro do package <code>com.hexagonal.simplified</code>. A estrutura
             base contém os pacotes <code>adapter</code>, <code>application</code> e <code>domain</code>. Por fim, por se tratar de um
-            projeto Spring Boot, podemos ver também a pasta <code>resources</code> com alguns arquivos de configuração.
+            projeto Spring Boot, podemos ver também a pasta <code>resources</code> com alguns arquivos de configuração. Vamos agora começar
+            a entrar nos detalhes de cada package.
           </p>
 
           <h4>
@@ -145,7 +146,7 @@
           <p>
             Na estrutura interna desse package eu adiciono outros dois sub-packages chamados <code>port</code> e <code>usecase</code>.
             O pacote <b>port</b> contém as interfaces de comunicação de entrada e saída (I/O) e o pacote <b>usecase</b> contém, como o
-            próprio nome já diz, os Use Case do projeto e o mesmo também pode ter um nome diferente.
+            próprio nome já diz, os Casos de Uso do projeto e o mesmo também pode ter um nome diferente.
           </p>
 
           <h4>
@@ -155,7 +156,7 @@
           <p>
             Esse package é o mais "versátil" e pode conter muitos diferentes tipos de sub-packages. Nessa minha proposta de arquitetura
             simplificada eu diria que esse é o package que mais vai fugir à regra do hexagonal :) Porém, como de fato serão organizados
-            os sub-packages, vai mesmo depender de como você e sua equipe estruturam suas entidades, DTOs, enums e afins. 
+            os sub-packages vai depender de como você e sua equipe estruturam suas entidades, DTOs, enums e afins. 
           </p>
           <p>
             Outro ponto importante sobre o <b>domain</b> é que na arquitetura hexagonal esse package costuma se comunicar com os demais
@@ -163,23 +164,22 @@
             entre os pacotes quando se trata dessas classes de domínio, sejam elas entidades de negócio ou não.
           </p>
           <p align="center">
-            <img style="width: 40%"
+            <img style="width: 45%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-02.png"
               alt="Sub-packages domain, application e adapter">
           </p>
 
           <h2>
             <a href="#Aprofundando" class="headerlink" title="Aprofundando"></a>
-              Aprofundando no exemplo
+              Aprofundando
           </h2>
           <p>
             No package adapter, como podem ver na imagem abaixo, eu implementei duas operações de entrada e duas de saída. As operações
             de entrada são um método HTTP GET e um consumidor Kafka e as de saída são um produtor Kafka e um repositório JPA responsável
-            por operações de banco de dados na tabela <code>EXAMPLE_ONE</code> da entidade <code>ExampleOne</code>
-            (com.hexagonal.simplified.domain.entity).
+            por operações de banco de dados.
           </p>
           <p align="center">
-            <img style="width: 40%"
+            <img style="width: 45%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-03.png"
               alt="Package adapter">
           </p>
@@ -190,7 +190,7 @@
             o sub-package <code>usecase</code> que é onde fica todo código de implementação das interfaces de entrada (regras de negócio).
           </p>
           <p align="center">
-            <img style="width: 40%"
+            <img style="width: 45%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-04.png"
               alt="Package application">
           </p>
@@ -198,10 +198,10 @@
           <p>
             Por último, o package domain que é o local que, como falei anteriormente, contém todas classes de entidade, enums, mappers,
             DTOs e similares. Caso use projections em seu projeto você também pode criar aqui um sub-package para adicionar as respectivas
-            interfaces do projection.
+            interfaces dessas projections.
           </p>
           <p align="center">
-            <img style="width: 40%"
+            <img style="width: 45%"
               src="https://raw.githubusercontent.com/netodeolino/netodeolino.github.io/main/img/posts/simplified-hexagonal/packages-05.png"
               alt="Package domain">
           </p>
@@ -213,7 +213,7 @@
           <p>
             Esse é o resumo da ópera! Caso surjam dúvidas deixe o seu comentário que irei responder o mais breve possível. O código
             fonte do projeto está disponível neste link:
-            <a target="_blank" href="https://github.com/netodeolino/hexagonal-simplified">Simplified Hexagonal</a>
+            <a target="_blank" href="https://github.com/netodeolino/hexagonal-simplified">Simplified Hexagonal</a>. Abraços!
           </p>
 
           <!-- Comments -->
